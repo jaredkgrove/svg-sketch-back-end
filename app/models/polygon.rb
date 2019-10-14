@@ -1,0 +1,2 @@
+class Polygon < Element
+end

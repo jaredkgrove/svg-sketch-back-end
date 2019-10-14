@@ -1,0 +1,2 @@
+class RoundedRectangle < Element
+end

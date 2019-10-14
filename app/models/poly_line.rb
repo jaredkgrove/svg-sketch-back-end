@@ -1,0 +1,2 @@
+class PolyLine < Element
+end
