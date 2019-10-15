@@ -3,14 +3,14 @@ class Api::V1::ElementsController < ApplicationController
 
     # GET /users
     def index
-      @elements = Sketch.all
-  
-      render json: @element
+    #   @elements = Element.all
+      elements_json = ElementSerializer.new(Element.all).serialized_json
+      render json: elements_json
     end
   
     # # GET /users/1
     def show
-        element_json = ElementSketchSerializer.new(@element).serialized_json
+        element_json = ElementSerializer.new(@element).serialized_json
       render json: element_json
       # render json: @user
     end

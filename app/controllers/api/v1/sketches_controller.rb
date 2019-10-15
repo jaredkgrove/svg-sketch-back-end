@@ -4,13 +4,14 @@ class Api::V1::SketchesController < ApplicationController
     # GET /users
     def index
       @sketches = Sketch.all
-  
-      render json: @sketch
+      # puts @sketches
+      # MovieSerializer.new([movie, movie], options).serialized_json
+      render json: @sketches
     end
   
     # # GET /users/1
     def show
-      sketch_json = SketchSerializer.new(@sketch).serialized_json
+      sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
       render json: sketch_json
       # render json: @user
     end

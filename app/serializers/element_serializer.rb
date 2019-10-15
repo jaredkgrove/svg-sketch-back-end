@@ -1,4 +1,4 @@
 class ElementSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :type, :properties
+  attributes :type, :properties, :sketch_id
 end
