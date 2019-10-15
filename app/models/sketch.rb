@@ -1,3 +1,4 @@
 class Sketch < ApplicationRecord
-    has_many :paths
+    belongs_to :user
+    has_many :elements
 end

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  scope '/api' do
-    get :sketches, to: 'sketch#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      get :sketches, to: 'sketch#index'
+    end
   end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
+
 end

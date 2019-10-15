@@ -1,4 +1,4 @@
-class SketchController < ApplicationController
+class Api::V1::SketchController < ApplicationController
     def index
         
         render status: 200, json: { text: 'WOOOHOO'}
