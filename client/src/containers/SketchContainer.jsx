@@ -1,20 +1,20 @@
 import React from 'react';
-// import Path from './path'
 import {fetchSketch} from '../actions/fetchSketch'
 import {addSketch} from '../actions/addSketch'
 import { connect } from 'react-redux';
+import ElementsContainer from './ElementsContainer'
 
 class SketchContainer extends React.Component {
     constructor(){
         super()
         this.state = {
-            elements: [],
+            elements: [{}],
             tempElements: [],
             isDrawing: false
         }
         this.sketchClientRect = ''
         this.sketchArea = React.createRef();
-        this.newLine = []
+        this.startPoint = []
     }
 
     handleOnMouseDown = (e) => {
@@ -24,7 +24,7 @@ class SketchContainer extends React.Component {
         this.setState({
             isDrawing: true
         })
-        this.newLine.push(x1, y1)
+        this.startPoint.push(x1, y1)
     } 
 
     handleOnMouseMove = (e) => {
@@ -48,15 +48,15 @@ class SketchContainer extends React.Component {
                     tempElements: []
                 }) 
             }
-            this.newLine = []
+            this.startPoint = []
         }
 
     } 
 
     drawCircle = (x2, y2, ratio) => {
-        let R = Math.pow(Math.pow(x2 - this.newLine[0], 2) + Math.pow((y2 - this.newLine[1]), 2), 0.5)*ratio
+        let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
         this.setState({
-            tempElements: [{cx:(this.newLine[0]*ratio), cy:this.newLine[1]*ratio, r:R, stroke:"red", fill:"blue", strokeWidth:"5"}]//[[`M ${(this.newLine[0]*ratio - R)} ${this.newLine[1]*ratio} a ${R} ${R},0 1, 0 ${2*R},0 a ${R} ${R},0 1, 0 ${-2*R},0`]] //`M ${this.newLine[0]} ${this.newLine[1]} L ${this.newLine[2]} ${this.newLine[3]}`]
+            tempElements: [{type: 'circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:"red", fill:"blue", strokeWidth:"5"}}]
         })
     }
 
@@ -70,12 +70,7 @@ class SketchContainer extends React.Component {
         return(
             <>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
-                    {this.state.tempElements.map(function(elem){
-                       return   <circle cx={elem.cx} cy={elem.cy} r={elem.r} stroke={elem.stroke} fill={elem.fill} stroke-width={elem.strokeWidth}/>
-                    })}
-                    {this.state.elements.map(function(elem){
-                        return   <circle cx={elem.cx} cy={elem.cy} r={elem.r} stroke={elem.stroke} fill={elem.fill} stroke-width={elem.strokeWidth}/>
-                    })}
+                    <ElementsContainer elements={this.state.elements} tempElements={this.state.tempElements}/>
                 </svg>
                 <form onSubmit={this.handleSubmit}>
                     <input type="submit" value='SAVE'/>

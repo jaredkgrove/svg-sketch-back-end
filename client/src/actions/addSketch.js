@@ -1,7 +1,6 @@
 export const addSketch = (data) => {
     console.log(data)
     return (dispatch) => {
-        console.log(data)
         // fetch(`http://localhost:3001/api/v1/sketches`,{
         //     headers:{
         //         'Content-Type': 'application/json',
