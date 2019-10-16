@@ -1,10 +1,11 @@
 class Api::V1::ElementsController < ApplicationController
+    before_action :set_sketch
     before_action :set_element, only: [:show]#, :update, :destroy]
 
     # GET /users
     def index
     #   @elements = Element.all
-      elements_json = ElementSerializer.new(Element.all).serialized_json
+      elements_json = ElementSerializer.new(Sketch.elements).serialized_json
       render json: elements_json
     end
   
@@ -42,6 +43,10 @@ class Api::V1::ElementsController < ApplicationController
   
     private
       # Use callbacks to share common setup or constraints between actions.
+      def set_sketch
+        @sketch = Sketch.find(params[:sketch_id])
+      end
+
       def set_element
         @element = Element.find(params[:id])
       end
