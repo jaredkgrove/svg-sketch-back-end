@@ -1,18 +1,16 @@
 // add the catsReducer 
-const sketchReducer = (state = { cats: [], loading: false }, action) => {
+const sketchReducer = (state = { elements: [] }, action) => {
     switch(action.type) {
-      case 'LOADING_CATS':
+      case 'FETCH_SKETCH':
         return {
           ...state,
-          cats: [...state.cats],
-          loading: true
+          sketches: action.sketches,
         }
-      case 'ADD_CATS':
-        return {
-          ...state,
-          cats: action.cats,
-          loading: false
-        }
+      // case 'ADD_ELEMENT':
+      //   return {
+      //     ...state,
+      //     elements: action.elements,
+      //   }
       default:
         return state;
     }

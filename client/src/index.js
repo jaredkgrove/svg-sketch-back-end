@@ -9,12 +9,12 @@ import {
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import sketchReducer from './Reducers/sketchReducer.js';
+import sketchReducer from './reducers/sketchReducer.js'; 
 
 // import * as serviceWorker from './serviceWorker';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(sketchReducer, composeEnhancers(applyMiddleware(thunk))
+const store = createStore(sketchReducer, composeEnhancers(applyMiddleware(thunk)))
 
 
  
@@ -23,7 +23,7 @@ ReactDOM.render(
     <Router >
     {/* history={history} */}
         <Route exact path="/" render={() => <div>Home</div>} />
-          <Route path='/sketch' render= {() => <div>Editing Sketch</div>}/>
+        <Route path='/sketch' render= {() => <div>Editing Sketch</div>}/>
         <App /> 
     </Router>
   </Provider>,
