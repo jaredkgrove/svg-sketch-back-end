@@ -1,16 +1,16 @@
 // add the catsReducer 
-const sketchReducer = (state = { elements: [] }, action) => {
+const sketchReducer = (state = { sketches: [] }, action) => {
     switch(action.type) {
-      case 'FETCH_SKETCH':
+      case 'FETCH_SKETCHES':
         return {
           ...state,
           sketches: action.sketches,
         }
-      // case 'ADD_ELEMENT':
-      //   return {
-      //     ...state,
-      //     elements: action.elements,
-      //   }
+      case 'ADD_SKETCH':
+        return {
+          ...state,
+          sketches: [...state.sketches, action.payload]
+        }
       default:
         return state;
     }
