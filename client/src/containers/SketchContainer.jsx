@@ -8,7 +8,7 @@ class SketchContainer extends React.Component {
     constructor(){
         super()
         this.state = {
-            elements: [{}],
+            elements: [],
             tempElements: [],
             isDrawing: false
         }
@@ -66,12 +66,12 @@ class SketchContainer extends React.Component {
     }
 
     render(){
-        console.log(this.state.elements)
         return(
             <>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
                     <ElementsContainer elements={this.state.elements} tempElements={this.state.tempElements}/>
                 </svg>
+                
                 <form onSubmit={this.handleSubmit}>
                     <input type="submit" value='SAVE'/>
                 </form>
