@@ -18,8 +18,10 @@ class Api::V1::SketchesController < ApplicationController
   
     # POST /users
     def create
-      @sketch = Sketch.new(sketch_params)
-  
+      binding.pry
+      @sketch = Sketch.new_from_params(elements_params)
+      #@sketch.new_elements_from_json(params['elements'])
+      
       if @sketch.save
         render json: @sketch, status: :created, location: @sketch
       else
@@ -49,6 +51,7 @@ class Api::V1::SketchesController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def sketch_params
-        params.require(:sketch).permit()
+        params.require(:sketch).permit(elements_attributes: [ :type, :properties ])
       end
+
 end
