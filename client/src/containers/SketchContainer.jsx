@@ -8,6 +8,7 @@ class SketchContainer extends React.Component {
     constructor(){
         super()
         this.state = {
+            name: 'My Sketch',
             elements: [],
             tempElements: [],
             isDrawing: false
@@ -56,13 +57,13 @@ class SketchContainer extends React.Component {
     drawCircle = (x2, y2, ratio) => {
         let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
         this.setState({
-            tempElements: [{type: 'circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:"red", fill:"blue", strokeWidth:"5"}}]
+            tempElements: [{type: 'circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:"red", fill:"blue", stroke_width:"5"}}]
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addSketch(this.state.elements)
+        this.props.addSketch(this.state)
     }
 
     render(){
