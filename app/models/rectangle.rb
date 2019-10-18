@@ -1,2 +1,0 @@
-class Rectangle < Element
-end

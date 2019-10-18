@@ -1,3 +1,4 @@
-class Circle < Element
-
+class Circle < ApplicationRecord
+    has_one :element, as: :elementable
+    accepts_nested_attributes_for :element
 end
