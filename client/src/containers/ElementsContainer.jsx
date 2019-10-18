@@ -5,7 +5,7 @@ import Circle from '../components/Circle'
     <>
         {props.tempElements.map(function(elem){
             switch(elem.type) {
-                case 'circle':
+                case 'Circle':
                   return <Circle properties={elem.properties}/>
                 default:
                   return <div>Don't know what this is</div>;
@@ -13,7 +13,7 @@ import Circle from '../components/Circle'
         })}
         {props.elements.map(function(elem){
             switch(elem.type) {
-                case 'circle':
+                case 'Circle':
                   return <Circle properties={elem.properties}/>
                 default:
                   return <div>Don't know what this is</div>;

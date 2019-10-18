@@ -18,14 +18,14 @@ class Api::V1::SketchesController < ApplicationController
   
     # POST /users
     def create
-      binding.pry
+
       @sketch = Sketch.new(sketch_params)
       
       if @sketch.save
         @sketch.create_sketch_elements_from_json(elements_attributes_params)
-        binding.pry
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
-        render json: @sketch, status: :created#, location: @sketch
+        # binding.pry
+        render json: sketch_json, status: :created#, location: @sketch
       else
         render json: @sketch.errors, status: :unprocessable_entity
       end
@@ -57,6 +57,6 @@ class Api::V1::SketchesController < ApplicationController
       end
 
       def elements_attributes_params
-        params.permit(elements: [:type, properties: [:cx, :cy, :r, :stroke, :fill, :strokeWidth]])
+        params.permit(elements: [:type, properties: [:cx, :cy, :r, :stroke, :fill, :stroke_width]])
       end
 end

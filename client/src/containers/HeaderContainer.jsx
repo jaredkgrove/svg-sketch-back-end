@@ -15,8 +15,8 @@ render() {
         Home
         </NavLink>
         <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/sketch"
+            style={{ marginRight: '10px' }} 
+            to="/sketches"
         >
         New Sketch
         </NavLink>

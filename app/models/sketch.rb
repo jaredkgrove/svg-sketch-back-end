@@ -15,12 +15,11 @@ class Sketch < ApplicationRecord
     # end
 
     def create_sketch_elements_from_json(data)
-       
         data['elements'].each do |element_data|
-            if element_data['type'] == 'circle'
+            if element_data['type'] == 'Circle'
                 circle = Circle.create(element_data['properties'])
                 element =  circle.create_element(sketch: self)
-            elsif element_data['type'] == 'rect'
+            elsif element_data['type'] == 'Rect'
                 rect = Rect.create(element_data['properties'])
                 element = rect.create_element(sketch: self)
             end

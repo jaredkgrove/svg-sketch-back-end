@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {
-    BrowserRouter as Router, Route
-  } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -21,9 +19,7 @@ const store = createStore(sketchReducer, composeEnhancers(applyMiddleware(thunk)
 ReactDOM.render(
   <Provider store={store}>
     <Router >
-    {/* history={history} */}
-        <Route exact path="/" render={() => <div>Home</div>} />
-        <Route path='/sketch' render= {() => <div>Editing Sketch</div>}/>
+
         <App /> 
     </Router>
   </Provider>,
