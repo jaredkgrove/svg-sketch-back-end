@@ -1,6 +1,5 @@
 import React from 'react';
 import {fetchSketch} from '../actions/fetchSketch'
-import {createSketch} from '../actions/createSketch'
 import { connect } from 'react-redux';
 import ElementsContainer from './ElementsContainer'
 import { Route } from 'react-router-dom';
@@ -20,15 +19,18 @@ class SketchContainer extends React.Component {
         this.startPoint = []
     }
 
+    // componentDidMount(){
+    //     if (this.props.match.params.sketchID){
+    //         this.props.fetchSketch(this.props.match.params.sketchID)
+    //     }
+    // }
+
     componentDidUpdate(prevProps){
-        console.log(this.props.id)
-        console.log(this.props.elements)
-        if (this.props.id !== prevProps.id) {
+        if(this.props.currentSketch && this.props.currentSketch !== prevProps.currentSketch){
             this.setState({
-                elements: this.props.elements
+                elements: this.props.currentSketch.elements
             })
-            this.props.history.push(`/sketches/${this.props.id}`)
-          }
+        }
     }
 
     handleOnMouseDown = (e) => {
@@ -52,9 +54,6 @@ class SketchContainer extends React.Component {
 
     handleOnMouseUp = (e) => {
         if(this.state.isDrawing){
-            // let x2 = e.clientX - this.sketchClientRect.left
-            // let y2 = e.clientY - this.sketchClientRect.top
-            
             if(this.state.tempElements[0]){
                 this.setState({
                     isDrawing: false,
@@ -76,7 +75,15 @@ class SketchContainer extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.createSketch(this.state)
+        if(this.props.currentSketch){
+            this.props.handleSave(this.props.currentSketch.id, this.state)
+        }else{
+            this.props.handleSave(this.state)
+        }
+        
+        this.setState({
+            elements:[]
+        })
 
     }
 
@@ -86,54 +93,25 @@ class SketchContainer extends React.Component {
         })
     }
 
-    handleSubmitLoad = (event) => {
-        event.preventDefault()
-        this.props.fetchSketch(this.state.id)
-    }
-
     render(){
-        const isLoading = () => {
-            if(this.props.loading) {
-                return <h1>LOADING</h1>
-            }
-        }
-
-        const isSaving = () => {
-            if(this.props.saving) {
-                return <h1>SAVING</h1>
-            }
-        }
         return(
             <>
-                    {console.log(this.props.elements)}
-                    {isLoading()}
-                    {isSaving()}
-                    <Route exact path={this.props.match.url} render={() => (
-                        <form onSubmit={this.handleSubmit}>
-                            <label>{this.props.name}</label>
-                            <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                            <input type="submit" value='SAVE'/>
-                        </form>
-                    )}/>
-                    <Route path={`${this.props.match.url}/:sketchId`} render={routerProps => <h3>{this.props.name}</h3>  }/>
-
-
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    <input type="submit" value='SAVE'/>
+                </form>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
                     <ElementsContainer elements={this.state.elements} tempElements={this.state.tempElements}/>
                 </svg>
                 
-
-
-                <form onSubmit={this.handleSubmitLoad}>
-                    <input type="text" name="id" value={this.state.id} onChange={this.handleChange}/>
-                    <input type="submit" value='Load'/>
-                </form>
             </>
         )
     }
 }
 
-export default connect(null, {fetchSketch, createSketch})(SketchContainer)
+
+
+export default SketchContainer
 
 
 // const mapStateToProps = state => {

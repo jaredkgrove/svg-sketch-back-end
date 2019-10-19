@@ -1,5 +1,5 @@
 // add the catsReducer 
-const sketchReducer = (state = {sketches: [] ,currentSketch: {id:'', name: '', elements: []}, loading: false, saving: false}, action) => {
+const sketchReducer = (state = {sketches: [], currentSketch: {id:'', name: '', elements: []}, loading: false, saving: false}, action) => {
     switch(action.type) {
       case 'LOADING_SKETCH':
           return {

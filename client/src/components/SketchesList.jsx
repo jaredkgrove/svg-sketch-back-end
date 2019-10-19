@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
  
 const SketchesList = ({ sketches }) => {
-  const renderSketches = Object.keys(sketches).map(sketchID =>
-    <Link key={sketchID} to={`/sketches/${sketchID}`}>{sketches[sketchID].name}</Link>
+  const renderSketches = sketches.map((sketch) =>{
+    return <><Link key={sketch.id} to={sketch.url}>{sketch.name}</Link><br></br></>}
   );
  
   return (
@@ -12,5 +13,11 @@ const SketchesList = ({ sketches }) => {
     </>
   );
 };
- 
-export default SketchesList;
+
+const mapStateToProps = state => {
+  
+  return {
+      sketches: state.sketches
+  }
+}
+export default connect(mapStateToProps)(SketchesList)

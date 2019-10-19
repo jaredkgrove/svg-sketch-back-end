@@ -25,4 +25,32 @@ class Sketch < ApplicationRecord
             end
         end
     end
+
+    
+    def update_sketch_elements_from_json(data)
+        # element_ids = data['elements'].collect do |element|
+        #     element['properties']['id']
+        # end.compact
+
+        # self.elements.each do |element|
+        #     if !element_ids.include?(element.id)
+        #         element.destroy
+        #     else 
+        #         element.elementable.update( data['elements'].find())
+        #     end
+        # end
+
+
+        data['elements'].each do |element_data|
+            if element_data['properties']['id']
+                
+            elsif element_data['type'] == 'Circle'
+                circle = Circle.create(element_data['properties'])
+                element =  circle.create_element(sketch: self)
+            elsif element_data['type'] == 'Rect'
+                rect = Rect.create(element_data['properties'])
+                element = rect.create_element(sketch: self)
+            end
+        end
+    end
 end
