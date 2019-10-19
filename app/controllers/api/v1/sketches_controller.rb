@@ -34,11 +34,11 @@ class Api::V1::SketchesController < ApplicationController
     # PATCH/PUT /users/1
     def update
       # @sketch.elements.destroy_all
-      binding.pry
       @sketch.update_sketch_elements_from_json(elements_attributes_params)
       # if @sketch.update(sketch_params)
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
-        render json: @sketch_json
+        # binding.pry
+        render json: sketch_json
       # else
       #   render json: @user.errors, status: :unprocessable_entity
       # end

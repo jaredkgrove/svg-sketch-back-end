@@ -11,8 +11,7 @@ export const updateSketch = (id, data) => {
             body: JSON.stringify(data)
         })
         .then(resp => resp.json())
-        .then((sketch) => { 
-            console.log(sketch)
+        .then(sketch => 
             dispatch(
             {
 
@@ -23,7 +22,7 @@ export const updateSketch = (id, data) => {
                     elements: sketch['included'].map((e) => ({type: e.attributes.elementable_type, properties: e.attributes.elementable}))
                 }
             })
-        })
+        )
     
     }
 }

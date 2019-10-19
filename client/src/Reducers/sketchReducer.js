@@ -19,7 +19,10 @@ const sketchReducer = (state = {sketches: [], currentSketch: {id:'', name: '', e
 
       case 'CREATE_SKETCH':
         return {...state, currentSketch: {id: action.payload.id, name: action.payload.name, elements: action.payload.elements}, loading: false, saving: false}
-      default:
+        case 'UPDATE_SKETCH':
+            return {...state, currentSketch: {id: action.payload.id, name: action.payload.name, elements: action.payload.elements}, loading: false, saving: false}
+    
+        default:
         return state;
     }
   }

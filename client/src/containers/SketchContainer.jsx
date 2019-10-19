@@ -94,10 +94,18 @@ class SketchContainer extends React.Component {
     }
 
     render(){
+        const renderName = () => {
+            if(this.props.currentSketch){
+                return <h1>{this.props.currentSketch.name}</h1>
+
+            }else{
+                return <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+            }
+        }
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    {renderName()}
                     <input type="submit" value='SAVE'/>
                 </form>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
