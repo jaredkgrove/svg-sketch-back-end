@@ -28,22 +28,25 @@ class Sketch < ApplicationRecord
 
     
     def update_sketch_elements_from_json(data)
-        # element_ids = data['elements'].collect do |element|
-        #     element['properties']['id']
-        # end.compact
+        # previous_element_ids =  self.elements.collect{|element| element.id}
+        # current_element_ids = data['elements'].collect{|element| element['properties']['id']}.compact
 
-        # self.elements.each do |element|
-        #     if !element_ids.include?(element.id)
-        #         element.destroy
-        #     else 
-        #         element.elementable.update( data['elements'].find())
-        #     end
+        # (previous_element_ids - current_element_ids).each do |id|
+        #     Element.destroy(id)
         # end
 
+        # (previous_element_ids - current_element_ids).each do |id|
+        #     Element.destroy(id)
+        # end
 
+        # self.elements.each do |element| 
+        #     element.elementable.update( data['elements'].find())
+        # end
+
+        
         data['elements'].each do |element_data|
             if element_data['properties']['id']
-                
+                # self.elements.(element_data['properties']['id'])
             elsif element_data['type'] == 'Circle'
                 circle = Circle.create(element_data['properties'])
                 element =  circle.create_element(sketch: self)
