@@ -27,21 +27,24 @@ class EditView extends React.Component {
     }
 
     render(){
-        // const isLoading = () => {
-        //     if(this.props.loading) {
-        //         return <h1>LOADING</h1>
-        //     }
-        // }
+        const isLoading = () => {
+            if(this.props.loading) {
+                return <h1>LOADING</h1>
+            }
+        }
 
-        // const isSaving = () => {
-        //     if(this.props.saving) {
-        //         return <h1>SAVING</h1>
-        //     }
-        // }
+        const isSaving = () => {
+            if(this.props.saving) {
+                return <h1>SAVING</h1>
+            }else{
+
+
+            }
+        }
         return(
             <>
-                {/* {isLoading()}
-                {isSaving()} */}
+                {isLoading()}
+                {isSaving()}
                 <SketchContainer currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
             </>
         )
@@ -50,7 +53,11 @@ class EditView extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        loading: state.loading,
+        saving: state.saving,
         currentSketch: state.currentSketch
+
+
     }
   }
 

@@ -9,7 +9,7 @@ class SketchContainer extends React.Component {
     constructor(){
         super()
         this.state = {
-            name: '',//move to name input element
+            // name: '',//move to name input element
             elements: [],
             tempElements: [],
             isDrawing: false
@@ -73,19 +73,15 @@ class SketchContainer extends React.Component {
         })
     }
 
-    // handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     if(this.props.currentSketch){
-    //         this.props.handleSave(this.props.currentSketch.id, this.state)
-    //     }else{
-    //         this.props.handleSave(this.state)
-    //     }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.handleSave(this.props.currentSketch.id, this.state)
         
-    //     this.setState({
-    //         elements:[]
-    //     })
+        // this.setState({
+        //     elements:[]
+        // })
 
-    // }
+    }
 
     // handleChange = (event) => {
     //     this.setState({
