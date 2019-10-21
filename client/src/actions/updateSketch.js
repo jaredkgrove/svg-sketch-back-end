@@ -15,7 +15,7 @@ export const updateSketch = (id, data) => {
             dispatch(
             {
 
-                type: 'UPDATE_SKETCH', 
+                type: 'UPDATE_ACTIVE_SKETCH', 
                 payload: {
                     id: sketch['data']['id'], 
                     name: sketch['data']['attributes']['name'], 

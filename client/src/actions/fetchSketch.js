@@ -5,7 +5,7 @@ export function fetchSketch(id){
         .then(resp => resp.json())
         .then((sketch) => {
             console.log(sketch)
-            dispatch({type: 'FETCH_SKETCH', 
+            dispatch({type: 'FETCH_ACTIVE_SKETCH', 
             payload: {
                 id: sketch['data']['id'], 
                 name: sketch['data']['attributes']['name'], 
