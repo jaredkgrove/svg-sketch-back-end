@@ -1,47 +1,36 @@
 class Api::V1::SketchesController < ApplicationController
     before_action :set_sketch, only: [:show, :update]#, :destroy]
 
-    # GET /users
     def index
-      # binding.pry
       @sketches = Sketch.all
-      # puts @sketches
-      # MovieSerializer.new([movie, movie], options).serialized_json
       sketches_json = SketchSerializer.new(@sketches).serialized_json
       render json: sketches_json
     end
   
-    # # GET /users/1
     def show
       sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
       render json: sketch_json
-      # render json: @user
     end
   
-    # POST /users
     def create
       @sketch = Sketch.new(sketch_params)
       if @sketch.save
-        # @sketch.create_sketch_elements_from_json(elements_attributes_params)
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
-        # binding.pry
-        render json: sketch_json, status: :created#, location: @sketch
+        render json: sketch_json, status: :created
       else
         render json: @sketch.errors, status: :unprocessable_entity
       end
     end
   
-    # PATCH/PUT /users/1
     def update
-      # @sketch.elements.destroy_all
       @sketch.update_sketch_elements_from_json(elements_attributes_params)
-      # if @sketch.update(sketch_params)
+      if @sketch.save
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
         # binding.pry
         render json: sketch_json
-      # else
-      #   render json: @user.errors, status: :unprocessable_entity
-      # end
+       else
+         render json: @sketch.errors, status: :unprocessable_entity
+       end
     end
   
     # # DELETE /users/1
