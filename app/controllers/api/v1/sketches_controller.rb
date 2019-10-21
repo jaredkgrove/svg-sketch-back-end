@@ -22,7 +22,7 @@ class Api::V1::SketchesController < ApplicationController
     def create
       @sketch = Sketch.new(sketch_params)
       if @sketch.save
-        @sketch.create_sketch_elements_from_json(elements_attributes_params)
+        # @sketch.create_sketch_elements_from_json(elements_attributes_params)
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
         # binding.pry
         render json: sketch_json, status: :created#, location: @sketch
