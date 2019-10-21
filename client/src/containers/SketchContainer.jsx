@@ -9,7 +9,7 @@ class SketchContainer extends React.Component {
     constructor(){
         super()
         this.state = {
-            name: '',
+            name: '',//move to name input element
             elements: [],
             tempElements: [],
             isDrawing: false
@@ -73,39 +73,39 @@ class SketchContainer extends React.Component {
         })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        if(this.props.currentSketch){
-            this.props.handleSave(this.props.currentSketch.id, this.state)
-        }else{
-            this.props.handleSave(this.state)
-        }
+    // handleSubmit = (event) => {
+    //     event.preventDefault()
+    //     if(this.props.currentSketch){
+    //         this.props.handleSave(this.props.currentSketch.id, this.state)
+    //     }else{
+    //         this.props.handleSave(this.state)
+    //     }
         
-        this.setState({
-            elements:[]
-        })
+    //     this.setState({
+    //         elements:[]
+    //     })
 
-    }
+    // }
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+    // handleChange = (event) => {
+    //     this.setState({
+    //         [event.target.name]: event.target.value
+    //     })
+    // }
 
     render(){
-        const renderName = () => {
-            if(this.props.currentSketch){
-                return <h1>{this.props.currentSketch.name}</h1>
+        // const renderName = () => {//routing should handle this
+        //     if(this.props.currentSketch){
+        //         return <h1>{this.props.currentSketch.name}</h1>
 
-            }else{
-                return <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-            }
-        }
+        //     }else{
+        //         return <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+        //     }
+        // }
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
-                    {renderName()}
+                    <h1>{this.props.currentSketch.name}</h1>
                     <input type="submit" value='SAVE'/>
                 </form>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>

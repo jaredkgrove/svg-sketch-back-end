@@ -12,9 +12,9 @@ class NewSketch extends React.Component {
     //         this.props.fetchSketch(this.props.match.params.sketchID)
     //     }
     // }
-    // state = {
-    //     name: ''
-    // }
+    state = {
+        name: ''
+    }
 
     // componentDidUpdate(prevProps){
     //     if (this.props.id !== prevProps.id) {
@@ -32,8 +32,29 @@ class NewSketch extends React.Component {
         }
     }
 
-    handleCreateSketch = (state) => {
-        this.props.createSketch(state)
+    // handleCreateSketch = (state) => {
+    //     this.props.createSketch(state)
+    // }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.createSketch(this.state)
+        // if(this.props.currentSketch){
+        //     this.props.handleSave(this.props.currentSketch.id, this.state)
+        // }else{
+        //     this.props.handleSave(this.state)
+        // }
+        
+        // this.setState({
+        //     elements:[]
+        // })
+
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     render(){
@@ -52,8 +73,13 @@ class NewSketch extends React.Component {
             <>
                 {/* {isLoading()}
                 {isSaving()} */}
-
-                <SketchContainer history={this.props.history} handleSave={this.handleCreateSketch}/>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    <input type="submit" value='SAVE'/>
+                </form>
+                
+                {/* <SketchContainer />  */}
+                {/* {handleSave={this.handleCreateSketch}} */}
             </>
         )
     }

@@ -12,6 +12,7 @@ export const createSketch = (data) => {
         })
         .then(resp => resp.json())
         .then((sketch) => { 
+            console.log(sketch)
             dispatch(
             {
                 type: 'CREATE_SKETCH', 
