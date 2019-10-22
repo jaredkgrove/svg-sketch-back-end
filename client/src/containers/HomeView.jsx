@@ -18,7 +18,7 @@ class HomeView extends React.Component {
 
     componentDidUpdate(){
         if (this.props.currentSketch.id) {
-            this.props.history.push(`/sketches/${this.props.currentSketch.id}`)
+            this.props.history.push(`/sketches/${this.props.currentSketch.id}/edit`)
         }
     }
 

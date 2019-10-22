@@ -12,6 +12,7 @@ class EditView extends React.Component {
         name: ''
     }
 
+
     componentDidMount(){
         if (this.props.match.params.sketchID !== this.props.currentSketch.id){
             this.props.fetchSketch(this.props.match.params.sketchID)
@@ -27,24 +28,17 @@ class EditView extends React.Component {
     }
 
     render(){
-        const isLoading = () => {
+        const loadSaveStatus = () => {
             if(this.props.loading) {
                 return <h1>LOADING</h1>
-            }
-        }
-
-        const isSaving = () => {
-            if(this.props.saving) {
+            }else if(this.props.saving) {
                 return <h1>SAVING</h1>
-            }else{
-
-
             }
         }
+
         return(
             <>
-                {isLoading()}
-                {isSaving()}
+                {loadSaveStatus()}
                 <SketchContainer currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
             </>
         )
@@ -56,8 +50,6 @@ const mapStateToProps = state => {
         loading: state.loading,
         saving: state.saving,
         currentSketch: state.currentSketch
-
-
     }
   }
 

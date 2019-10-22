@@ -26,7 +26,7 @@ class SketchContainer extends React.Component {
     // }
 
     componentDidUpdate(prevProps){
-        if(this.props.currentSketch && this.props.currentSketch !== prevProps.currentSketch){
+        if(this.props.currentSketch && (this.props.currentSketch !== prevProps.currentSketch)){
             this.setState({
                 elements: this.props.currentSketch.elements
             })
@@ -54,10 +54,10 @@ class SketchContainer extends React.Component {
 
     handleOnMouseUp = (e) => {
         if(this.state.isDrawing){
-            if(this.state.tempElements[0]){
+            if(this.state.tempElements.length){
                 this.setState({
                     isDrawing: false,
-                    elements: [...this.state.elements, this.state.tempElements[0]],//{`M ${this.props.x1} ${this.props.y1} L ${this.props.x2} ${this.props.y2}`}
+                    elements: [...this.state.elements, ...this.state.tempElements],//{`M ${this.props.x1} ${this.props.y1} L ${this.props.x2} ${this.props.y2}`}
                     tempElements: []
                 }) 
             }
@@ -83,21 +83,8 @@ class SketchContainer extends React.Component {
 
     }
 
-    // handleChange = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
-
     render(){
-        // const renderName = () => {//routing should handle this
-        //     if(this.props.currentSketch){
-        //         return <h1>{this.props.currentSketch.name}</h1>
-
-        //     }else{
-        //         return <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-        //     }
-        // }
+        const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
@@ -105,7 +92,8 @@ class SketchContainer extends React.Component {
                     <input type="submit" value='SAVE'/>
                 </form>
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
-                    <ElementsContainer elements={this.state.elements} tempElements={this.state.tempElements}/>
+                    {console.log(this.state.tempElements)}
+                    <ElementsContainer elements={elementsToRender()} />
                 </svg>
                 
             </>
