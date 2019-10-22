@@ -2,30 +2,38 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 8vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+
+
 .App-link {
   color: #09d3ac;
+  text-decoration: none;
 }
 
-.sketch-board {
+.App-link:hover {
+  color: #05614e;
+  text-decoration: none;
+}
+
+.Edit-sketch {
+
+  flex-grow: 3;
+}
+
+.sketch-board{
   border: 1px;
   border-color: black;
   border-style: solid;
-  width: 75%;
 }
 
 .sketch-board.preview{
@@ -35,3 +43,39 @@
   margin: 50px;
   width: 30%;
 }
+
+.Edit-view{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.color-selector {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-content: stretch; */
+  justify-content: space-between;
+  /* height: 100px; */
+  
+}
+/* 
+.sl-bar {
+  flex-grow: 1;
+  height: 100%;
+} */
+
+.hue-bar {
+  flex-grow: 1;
+  height: 100%;
+  /* width: 10px; */
+}
+
+.sat-light-select{
+  flex-grow: 4;
+  height: 100%;
+}
+
