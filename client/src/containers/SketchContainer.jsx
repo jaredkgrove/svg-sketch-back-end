@@ -68,8 +68,9 @@ class SketchContainer extends React.Component {
 
     drawCircle = (x2, y2, ratio) => {
         let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
+        console.log(this.props.settings)
         this.setState({
-            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:"red", fill:"blue", stroke_width:"5"}}]
+            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:`${this.props.settings.lineColor}`, fill:"blue", stroke_width:`${this.props.settings.lineWidth}`}}]
         })
     }
 
@@ -86,17 +87,17 @@ class SketchContainer extends React.Component {
     render(){
         const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
-            <>
-                <form onSubmit={this.handleSubmit}>
-                    <h1>{this.props.currentSketch.name}</h1>
-                    <input type="submit" value='SAVE'/>
-                </form>
-                <svg ref={this.sketchArea} viewBox = {`0 0 1000 1000`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
+            <div className='Edit-sketch'>
+                <h3>{this.props.currentSketch.name}</h3>
+
+                <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
                     {console.log(this.state.tempElements)}
                     <ElementsContainer elements={elementsToRender()} />
                 </svg>
-                
-            </>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="submit" value='SAVE'/>
+                </form>
+            </div>
         )
     }
 }

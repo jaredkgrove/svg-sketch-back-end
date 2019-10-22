@@ -9,12 +9,14 @@ render() {
         <header className="App-header">
 
         <NavLink 
+        className='App-link'
         style={{ marginRight: '10px' }} 
         to="/"
         >
         Home
         </NavLink>
         <NavLink 
+        className='App-link'
             style={{ marginRight: '10px' }} 
             to="/sketches"
         >

@@ -17,7 +17,6 @@ class App extends React.Component {
       <Route exact path='/' render= {routerProps => <HomeView {...routerProps} />}/>
       <Route exact path='/sketches/:sketchID' render= {routerProps => <SketchView {...routerProps} />}/>
       <Route path='/sketches/:sketchID/edit' render= {routerProps => <EditView {...routerProps} />}/>
-
     </div>
   )}
 }
@@ -25,4 +24,3 @@ class App extends React.Component {
 
 
 export default App;
-// export default connect(null, {fetchSketches})(App)

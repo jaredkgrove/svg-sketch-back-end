@@ -4,6 +4,7 @@ import {updateSketch} from '../actions/updateSketch'
 import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchContainer from '../containers/SketchContainer';
+import ColorSelectorContainer from '../containers/ColorSelectorContainer'
 
 
 class EditView extends React.Component {
@@ -29,26 +30,26 @@ class EditView extends React.Component {
 
     render(){
         const loadSaveStatus = () => {
-            if(this.props.loading) {
+            if(this.props.currentSketch.loading) {
                 return <h1>LOADING</h1>
-            }else if(this.props.saving) {
+            }else if(this.props.currentSketch.saving) {
                 return <h1>SAVING</h1>
             }
         }
 
         return(
-            <>
+            <div className='Edit-view'>
                 {loadSaveStatus()}
-                <SketchContainer currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
-            </>
+                <ColorSelectorContainer />
+                <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
+            </div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        loading: state.loading,
-        saving: state.saving,
+        settings: state.settings,
         currentSketch: state.currentSketch
     }
   }
