@@ -3,7 +3,7 @@ import {fetchSketch} from '../actions/fetchSketch'
 import {updateSketch} from '../actions/updateSketch'
 import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
-import SketchContainer from './SketchContainer';
+import SketchContainer from '../containers/SketchContainer';
 
 
 class EditView extends React.Component {

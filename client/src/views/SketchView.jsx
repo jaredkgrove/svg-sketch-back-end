@@ -2,7 +2,7 @@ import React from 'react';
 import {fetchSketch} from '../actions/fetchSketch'
 import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
-import SketchPreviewContainer from './SketchPreviewContainer';
+import SketchPreviewContainer from '../containers/SketchPreviewContainer';
 
 
 class SketchView extends React.Component {
@@ -24,8 +24,7 @@ class SketchView extends React.Component {
     render(){
         return(
             <>
-            {console.log('hey')}
-            {console.log(this.props.currentSketch)}
+                
                 <SketchPreviewContainer elements={this.props.currentSketch.elements} handleSave={this.handleUpdateSketch}/>
             </>
         )

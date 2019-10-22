@@ -6,12 +6,9 @@ import { Route } from 'react-router-dom';
 
 
     const SketchPreviewContainer = (props) => (
-            <>
                 <svg viewBox = {`0 0 1000 1000`} className={"sketch-board preview"} >
                     <ElementsContainer elements={props.elements} />
                 </svg>
-                
-            </>
 
     )
 

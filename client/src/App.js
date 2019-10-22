@@ -4,10 +4,9 @@ import { Route } from 'react-router-dom';
 
 import HeaderContainer from './containers/HeaderContainer'
 
-import HomeView from './containers/HomeView';
-import EditView from './containers/EditView';
-import SketchPreviewContainer from './containers/SketchPreviewContainer';
-import SketchView from './containers/SketchView';
+import HomeView from './views/HomeView';
+import EditView from './views/EditView';
+import SketchView from './views/SketchView';
 
 class App extends React.Component {
 
