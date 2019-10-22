@@ -6,6 +6,12 @@ class Api::V1::SketchesController < ApplicationController
       sketches_json = SketchSerializer.new(@sketches).serialized_json
       render json: sketches_json
     end
+
+    def index_including_elements
+      @sketches = Sketch.all
+      sketches_json = SketchSerializer.new(@sketches, {include: [:elements]}).serialized_json
+      render json: sketches_json
+    end
   
     def show
       sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
