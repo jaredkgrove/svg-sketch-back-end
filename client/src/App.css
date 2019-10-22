@@ -22,5 +22,16 @@
 }
 
 .sketch-board {
+  border: 1px;
+  border-color: black;
+  border-style: solid;
   width: 75%;
+}
+
+.sketch-board.preview{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  margin: 50px;
+  width: 30%;
 }
