@@ -6,6 +6,8 @@ import HeaderContainer from './containers/HeaderContainer'
 
 import HomeView from './containers/HomeView';
 import EditView from './containers/EditView';
+import SketchPreviewContainer from './containers/SketchPreviewContainer';
+import SketchView from './containers/SketchView';
 
 class App extends React.Component {
 
@@ -14,9 +16,9 @@ class App extends React.Component {
     <div className="App">
       <HeaderContainer />
       <Route exact path='/' render= {routerProps => <HomeView {...routerProps} />}/>
-      <Route path='/sketches/:sketchID' render= {routerProps => <EditView {...routerProps} />}/>
+      <Route exact path='/sketches/:sketchID' render= {routerProps => <SketchView {...routerProps} />}/>
+      <Route path='/sketches/:sketchID/edit' render= {routerProps => <EditView {...routerProps} />}/>
 
-      {/* <Route path='/sketches/:sketchID' render= {routerProps => <SketchContainer {...routerProps} elements={this.props.elements} name={this.props.name} id = {this.props.id} saving={this.props.saving} loading={this.props.loading}/>}/> */}
     </div>
   )}
 }
