@@ -29,7 +29,7 @@ import { connect } from 'react-redux';
     
      componentDidUpdate(prevProps, prevState){
          if(this.state.sliderPosition !== prevState.sliderPosition ){
-            this.props.handleChange(this.state.hue)
+            this.props.handleChange({h: this.state.hue})
          }
      }
        
@@ -49,7 +49,7 @@ import { connect } from 'react-redux';
 
     render(){
         return (
-            <div ref={this.hueBar} onMouseDown={this.handleOnMouseDown} className='hue-bar' style={{background: 'linear-gradient(to bottom,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%))', margin:'10px'}}>
+            <div ref={this.hueBar} onMouseDown={this.handleOnMouseDown} className='hue-bar' style={{background: 'linear-gradient(to bottom,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%))'}}>
                     <div style={{backgroundColor: `hsl(${this.state.hue},100%,50%)`, width: '30px', height: '30px', border:'3px solid white', borderRadius: '18px', position:'relative', top:`${this.state.sliderPosition-15}px`, left:'-8px'}}></div>
             </div>
         )

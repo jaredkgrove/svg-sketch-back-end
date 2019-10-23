@@ -27,13 +27,13 @@ class EditView extends React.Component {
         this.props.updateSketch(id, state)
     }
 
-    handleLineHueUpdate = (hue) =>{
-        this.props.updateLineHueSetting(hue)
-    }
+    // handleLineHueUpdate = (hue) =>{
+    //     this.props.updateLineHueSetting(hue)
+    // }
 
-    handleLineSLUpdate = (s, l) =>{
-        this.props.updateLineSLSetting(s, l)
-    }
+    // handleLineSLUpdate = (s, l) =>{
+    //     this.props.updateLineSLSetting(s, l)
+    // }
 
     render(){
         const loadSaveStatus = () => {
@@ -47,7 +47,11 @@ class EditView extends React.Component {
         return(
             <div className='Edit-view'>
                 {loadSaveStatus()}
-                <ColorSelectorContainer handleLineHueUpdate={this.handleLineHueUpdate} handleLineSLUpdate={this.handleLineSLUpdate} settings={this.props.settings}/>
+                <div className='settings'>
+                    {/* <ColorSelectorContainer settings={this.props.settings}/> */}
+                    <ColorSelectorContainer settings={this.props.settings}/>
+                    {/* <ColorSelectorContainer settings={this.props.settings}/> */}
+                </div>
                 <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
             </div>
         )
@@ -56,8 +60,6 @@ class EditView extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      updateLineHueSetting: (hue) => dispatch({ type: 'UPDATE_LINE_HUE', payload: hue }),
-      updateLineSLSetting: (s, l) => dispatch({ type: 'UPDATE_LINE_HUE', payload: {s:s, l:l} }),
       fetchSketch: (id) => dispatch(fetchSketch(id)),
       updateSketch: (id, elements) => dispatch(updateSketch(id, elements)),
       clearCurrentSketch: () => dispatch(clearCurrentSketch())

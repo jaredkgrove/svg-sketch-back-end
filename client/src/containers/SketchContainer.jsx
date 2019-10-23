@@ -69,7 +69,7 @@ class SketchContainer extends React.Component {
         let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
         console.log(this.getHSL(this.props.settings.lineColor))
         this.setState({
-            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:this.getHSL(this.props.settings.lineColor), fill:"blue", stroke_width:`${this.props.settings.lineWidth}`}}]
+            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:this.getHSL(this.props.settings.lineColor), fill:this.getHSL(this.props.settings.fillColor), stroke_width:`${this.props.settings.lineWidth}`}}]
         })
     }
 

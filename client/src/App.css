@@ -25,9 +25,22 @@
   text-decoration: none;
 }
 
-.Edit-sketch {
+.Edit-view{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  flex-grow: 3;
+.Edit-sketch {
+  flex-grow: 4;
+}
+
+.settings {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .sketch-board{
@@ -44,38 +57,27 @@
   width: 30%;
 }
 
-.Edit-view{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-}
+
 
 .color-selector {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   /* align-content: stretch; */
-  justify-content: space-between;
-  /* height: 100px; */
+  /* align-content: space-between; */
+  height: 100%;
   
 }
-/* 
-.sl-bar {
-  flex-grow: 1;
-  height: 100%;
-} */
 
 .hue-bar {
   flex-grow: 1;
   height: 100%;
-  /* width: 10px; */
 }
 
 .sat-light-select{
   flex-grow: 4;
   height: 100%;
+  width: 60px;
 }
 

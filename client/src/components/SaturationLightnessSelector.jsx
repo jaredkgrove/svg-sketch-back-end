@@ -4,60 +4,97 @@ import React from 'react';
      constructor(){
          super()
         this.state = {
-            selectorPosition: 0
+            selectorPosition: {x:0, y:0},
+            saturation: 0,
+            lightness: 0
         }
-        this.satLightClientRect = ''
-        this.satLightDiv = React.createRef();
+        this.canvasClientRect = ''
+        this.canvas = React.createRef();
+        
      }
     
        
     handleOnMouseDown = (e) => {
-        this.satLightClientRect = this.satLightDiv.current.getBoundingClientRect() 
-        let y1 = e.clientY - this.satLightDiv.top
+        this.canvasClientRect = this.canvas.current.getBoundingClientRect() 
+        let y = e.clientY - this.canvasClientRect.top - this.canvasClientRect.height
+        let x = e.clientX - this.canvasClientRect.left
+        console.log(this.getSaturation(x, y))
+        console.log(this.getHSVSat(x))
+        console.log(this.getLightness(x, y))
+        console.log(this.getHSVValue(y))
         this.setState({
-            sliderPosition: y1
+            selectorPosition: {x:x ,y:y},
+            saturation: this.getSaturation(x, y),
+            lightness: this.getLightness(x, y)
         })
     } 
-    // getHue = () => {
-    //     let hue = 360 * (this.state.sliderPosition / this.hueBarClientRect.height)
-    //     return hue
-    // }
 
     // var canvas = document.getElementById("primary");
-// var context = canvas.getContext("2d");
+   componentDidMount(){
+    this.canvasClientRect = this.canvas.current.getBoundingClientRect() 
+   }
+componentDidUpdate(prevProps, prevState){
+    if(this.props.hue !== prevProps.hue){
+        this.fillPrimary()
+    }
+    if(this.state.selectorPosition !== prevState.selectorPosition ){
+        this.props.handleChange({s: this.state.saturation, l: this.state.lightness})
+    }
+}
 
-// canvas.width = 256;
-// canvas.height = 256;
+fillPrimary = () => {
+    let context = this.canvas.current.getContext("2d");
+    let height = this.canvas.current.height
+    let width = this.canvas.current.width
 
-// fillPrimary = (hue) => {
-//     var brightness = context.createLinearGradient(0, 0, 0, 256);
-//   brightness.addColorStop(0, "white");
-//   brightness.addColorStop(1, "black");
+    let brightness = context.createLinearGradient(0, 0, 0, height);
+    brightness.addColorStop(0, "white");
+    brightness.addColorStop(1, "black");
 
-//   var saturation = context.createLinearGradient(0, 0, 256, 0);
-// 	saturation.addColorStop(0, "hsla(" + hue + ",100%,50%,0)");
-// 	saturation.addColorStop(1, "hsla(" + hue + ",100%,50%,1)");
+    let saturation = context.createLinearGradient(0, 0, width, 0);
+	saturation.addColorStop(0, "hsla(" + this.props.hue + ",100%,50%,0)");
+	saturation.addColorStop(1, "hsla(" + this.props.hue + ",100%,50%,1)");
 
-// 	context.fillStyle = brightness;
-// 	context.fillRect(0, 0, 256, 256);
+	context.fillStyle = brightness;
+	context.fillRect(0, 0, width, height);
   
-// 	context.fillStyle = saturation;
-// 	context.globalCompositeOperation = "multiply";
-// 	context.fillRect(0, 0, 256, 256);
-// 	context.globalCompositeOperation = "source-over";
-// }
+	context.fillStyle = saturation;
+	context.globalCompositeOperation = "multiply";
+	context.fillRect(0, 0, width, height);
+    context.globalCompositeOperation = "source-over";
+    
+}
 
-// fillPrimary(0);
 
-// $("#secondary").on("input", function() {
-// 	fillPrimary(this.value);
-// });
+
+
+getSaturation = (x, y) => (100*this.hsvSatToHslSat(this.props.hue/360, this.getHSVSat(x), this.getHSVValue(y)))
+
+getLightness = (x, y) => (100*this.vTol(this.getHSVSat(x), this.getHSVValue(y)))
+
+getHSVSat = (x) => ((x / this.canvasClientRect.width))
+
+getHSVValue = (y) => ((-y / this.canvasClientRect.height))
+
+hsvSatToHslSat = (hue,sat,val) => {
+    return (2-sat)*val < 1 ? sat*val/((2-sat)*val):sat*val/(2-(2-sat)*val)
+}
+
+vTol = (sat, val) => {
+    return (2-sat)*val/2 //Lightness is (2-sat)*val/2
+}
+
+// getSliderPosition = (sat, light) => ((this.canvasClientRect.height * hue)/360)
     
 render(){
     return (
-        <div ref={this.satLightDiv} onMouseDown={this.handleOnMouseDown} className='sat-light-select' style={{background: 'linear-gradient(to bottom left,hsl(0,100%,100%,0),hsl(0,100%,100%,1)),  linear-gradient(to top left,hsl(0,100%,50%,1),hsl(0,100%,50%,1))'}}>
-                <div style={{backgroundColor: 'black', width: '30px', height: '30px', borderRadius: '15px', position:'relative', top:`${this.state.sliderPosition-15}px`}}></div>
-            </div>
+        <div   className='sat-light-select' >
+
+        <canvas   ref={this.canvas} onMouseDown={this.handleOnMouseDown} style={{width:'100%', height:'100%', verticalAlign:'top'}}></canvas>
+        <div style={{backgroundColor: `hsl(${this.props.hue},${this.state.saturation}%,${this.state.lightness}%)`, width: '10px', height: '10px', border:'2pex solid white', borderRadius: '7px', position:'relative', top:`${this.state.selectorPosition.y-5}px`, left:`${this.state.selectorPosition.x-5}px`}}></div>
+
+        </div>
+        
         )
     }
 
