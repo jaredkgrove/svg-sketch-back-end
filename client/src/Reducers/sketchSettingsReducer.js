@@ -1,8 +1,11 @@
 // add the catsReducer 
-const sketchSettingsReducer = (state = {lineColor: 'purple', lineWidth: '5'}, action) => {
+const sketchSettingsReducer = (state = {lineColor:{h: 0, s: 100, l:50}, lineWidth: '5'}, action) => {
     switch(action.type) {
-    //   case 'LOADING_SKETCH':
-    //       return {...state, loading: true}
+        // UPDATE_LINE_COLOR_SETTING
+      case 'UPDATE_LINE_HUE':
+        return {...state, lineColor: {...state.lineColor, h: action.payload}}
+    case 'UPDATE_LINE_SL':
+        return {...state, lineColor: {...state.lineColor, s: action.payload.s, l: action.payload.l}}
     //   case 'SAVING_SKETCH':
     //       return {...state, saving: true}
     //   case 'FETCH_SKETCHES':
