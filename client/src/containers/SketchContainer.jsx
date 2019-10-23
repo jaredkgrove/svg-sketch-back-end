@@ -63,14 +63,13 @@ class SketchContainer extends React.Component {
             }
             this.startPoint = []
         }
-
     } 
 
     drawCircle = (x2, y2, ratio) => {
         let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
-        console.log(this.props.settings)
+        console.log(this.getHSL(this.props.settings.lineColor))
         this.setState({
-            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:`${this.props.settings.lineColor}`, fill:"blue", stroke_width:`${this.props.settings.lineWidth}`}}]
+            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:this.getHSL(this.props.settings.lineColor), fill:"blue", stroke_width:`${this.props.settings.lineWidth}`}}]
         })
     }
 
@@ -84,6 +83,8 @@ class SketchContainer extends React.Component {
 
     }
 
+    getHSL = ({h, s, l}) => `hsl(${h},${s}%,${l}%)`
+
     render(){
         const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
@@ -91,7 +92,6 @@ class SketchContainer extends React.Component {
                 <h3>{this.props.currentSketch.name}</h3>
 
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
-                    {console.log(this.state.tempElements)}
                     <ElementsContainer elements={elementsToRender()} />
                 </svg>
                 <form onSubmit={this.handleSubmit}>

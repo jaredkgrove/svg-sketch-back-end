@@ -1,6 +1,6 @@
 import React from 'react';
 import {fetchSketch} from '../actions/fetchSketch'
-import { connect } from 'react-redux';
+
 import ElementsContainer from './ElementsContainer'
 import { Route } from 'react-router-dom';
 

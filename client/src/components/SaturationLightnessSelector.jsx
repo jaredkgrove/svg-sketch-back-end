@@ -54,11 +54,11 @@ import React from 'react';
 // });
     
 render(){
-        return (
-            <div ref={this.satLightDiv} onMouseDown={this.handleOnMouseDown} className='sat-light-select' style={{background: 'linear-gradient(to bottom left,hsl(0,100%,100%,0),hsl(0,100%,100%,1)),  linear-gradient(to top left,hsl(0,100%,50%,1),hsl(0,100%,50%,1))'}}>
-                    <div style={{backgroundColor: 'black', width: '30px', height: '30px', borderRadius: '15px', position:'relative', top:`${this.state.sliderPosition-15}px`}}></div>
-                </div>
-            )
+    return (
+        <div ref={this.satLightDiv} onMouseDown={this.handleOnMouseDown} className='sat-light-select' style={{background: 'linear-gradient(to bottom left,hsl(0,100%,100%,0),hsl(0,100%,100%,1)),  linear-gradient(to top left,hsl(0,100%,50%,1),hsl(0,100%,50%,1))'}}>
+                <div style={{backgroundColor: 'black', width: '30px', height: '30px', borderRadius: '15px', position:'relative', top:`${this.state.sliderPosition-15}px`}}></div>
+            </div>
+        )
     }
 
  }

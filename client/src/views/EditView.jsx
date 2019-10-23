@@ -13,7 +13,6 @@ class EditView extends React.Component {
         name: ''
     }
 
-
     componentDidMount(){
         if (this.props.match.params.sketchID !== this.props.currentSketch.id){
             this.props.fetchSketch(this.props.match.params.sketchID)
@@ -28,6 +27,14 @@ class EditView extends React.Component {
         this.props.updateSketch(id, state)
     }
 
+    handleLineHueUpdate = (hue) =>{
+        this.props.updateLineHueSetting(hue)
+    }
+
+    handleLineSLUpdate = (s, l) =>{
+        this.props.updateLineSLSetting(s, l)
+    }
+
     render(){
         const loadSaveStatus = () => {
             if(this.props.currentSketch.loading) {
@@ -40,12 +47,22 @@ class EditView extends React.Component {
         return(
             <div className='Edit-view'>
                 {loadSaveStatus()}
-                <ColorSelectorContainer />
+                <ColorSelectorContainer handleLineHueUpdate={this.handleLineHueUpdate} handleLineSLUpdate={this.handleLineSLUpdate} settings={this.props.settings}/>
                 <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+      updateLineHueSetting: (hue) => dispatch({ type: 'UPDATE_LINE_HUE', payload: hue }),
+      updateLineSLSetting: (s, l) => dispatch({ type: 'UPDATE_LINE_HUE', payload: {s:s, l:l} }),
+      fetchSketch: (id) => dispatch(fetchSketch(id)),
+      updateSketch: (id, elements) => dispatch(updateSketch(id, elements)),
+      clearCurrentSketch: () => dispatch(clearCurrentSketch())
+    }
+  }
 
 const mapStateToProps = state => {
     return {
@@ -54,6 +71,6 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, {fetchSketch, updateSketch, clearCurrentSketch})(EditView)
+export default connect(mapStateToProps, mapDispatchToProps)(EditView)
 
 
