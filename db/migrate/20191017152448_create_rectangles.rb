@@ -1,6 +1,6 @@
-class CreateRect < ActiveRecord::Migration[6.0]
+class CreateRectangles < ActiveRecord::Migration[6.0]
   def change
-    create_table :rects do |t|
+    create_table :rectangles do |t|
       t.decimal :x
       t.decimal :y
       t.decimal :rx

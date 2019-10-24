@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_152448) do
+ActiveRecord::Schema.define(version: 2019_10_24_200605) do
 
   create_table "circles", force: :cascade do |t|
     t.decimal "cx"
@@ -30,7 +30,22 @@ ActiveRecord::Schema.define(version: 2019_10_17_152448) do
     t.index ["elementable_type", "elementable_id"], name: "index_elements_on_elementable_type_and_elementable_id"
   end
 
-  create_table "rects", force: :cascade do |t|
+  create_table "lines", force: :cascade do |t|
+    t.decimal "x1"
+    t.decimal "y1"
+    t.decimal "x2"
+    t.decimal "y2"
+    t.string "stroke"
+    t.string "stroke_width"
+  end
+
+  create_table "polylines", force: :cascade do |t|
+    t.string "points"
+    t.string "stroke"
+    t.string "stroke_width"
+  end
+
+  create_table "rectangles", force: :cascade do |t|
     t.decimal "x"
     t.decimal "y"
     t.decimal "rx"
