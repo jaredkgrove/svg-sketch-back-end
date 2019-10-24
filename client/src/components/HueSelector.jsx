@@ -21,6 +21,10 @@ import { connect } from 'react-redux';
 
       componentDidMount() {
         window.addEventListener('resize', this.updateDimensions);
+        console.log(this.props.initHue)
+        this.setState({
+            hue: this.props.initHue
+        })
       }
 
       componentWillUnmount() {
@@ -49,8 +53,8 @@ import { connect } from 'react-redux';
 
     render(){
         return (
-            <div ref={this.hueBar} onMouseDown={this.handleOnMouseDown} className='hue-bar' style={{background: 'linear-gradient(to bottom,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%))'}}>
-                    <div style={{backgroundColor: `hsl(${this.state.hue},100%,50%)`, width: '30px', height: '30px', border:'3px solid white', borderRadius: '18px', position:'relative', top:`${this.state.sliderPosition-15}px`, left:'-8px'}}></div>
+            <div ref={this.hueBar} onMouseDown={this.handleOnMouseDown} className='hue-bar' style={{background: 'linear-gradient(to bottom,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%))', margin:'0px 10px 0px 10px'}}>
+                    <div style={{backgroundColor: `hsl(${this.state.hue},100%,50%)`, width: '140%', paddingTop:'70%', borderRadius:'35%', border:'1px solid white', position:'relative', top:`${this.state.sliderPosition-15}px`, display:'inline-block', right:'calc(20% + 1px)'}}></div>
             </div>
         )
     }

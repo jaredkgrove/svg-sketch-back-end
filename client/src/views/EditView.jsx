@@ -5,6 +5,7 @@ import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchContainer from '../containers/SketchContainer';
 import ColorSelectorContainer from '../containers/ColorSelectorContainer'
+import StrokeSelectorContainer from '../containers/StrokeSelectorContainer'
 
 
 class EditView extends React.Component {
@@ -50,6 +51,9 @@ class EditView extends React.Component {
                 <div className='settings'>
                     {/* <ColorSelectorContainer settings={this.props.settings}/> */}
                     <ColorSelectorContainer settings={this.props.settings}/>
+                    <StrokeSelectorContainer settings={this.props.settings}/>
+
+                    
                     {/* <ColorSelectorContainer settings={this.props.settings}/> */}
                 </div>
                 <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>

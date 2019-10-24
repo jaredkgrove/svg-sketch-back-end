@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import HueSelector from '../components/HueSelector'
 import SaturationLightnessSelector from '../components/SaturationLightnessSelector'
+import ColorIndicator from '../components/ColorIndicator'
 
 const ColorSelectorContainer = (props) => {
     let lineColor = props.settings.lineColor
@@ -16,16 +17,31 @@ const ColorSelectorContainer = (props) => {
     }
 
     return(
-        <div className="color-selector">
-            <HueSelector handleChange={handleLineColorChange}/>
-            <SaturationLightnessSelector hue={props.settings.lineColor.h} handleChange={handleLineColorChange}/>
-            {/* <HueSelector handleChange={handleFillColorChange}/>
-            <SaturationLightnessSelector hue={props.settings.fillColor.h} handleChange={handleFillColorChange}/> */}
+        <div className="color-selectors">
+
+            <div className='line-color'>
+                <h3>Line Color</h3>
+                <HueSelector handleChange={handleLineColorChange} initHue={props.settings.lineColor.h}/>
+                <div className='color-select'>
+                    <SaturationLightnessSelector hue={props.settings.lineColor.h} handleChange={handleLineColorChange}/>
+                    <ColorIndicator color={props.settings.lineColor}/>
+                </div>
+            </div>
+
+            <div className="fill-color">
+                <h3>Fill Color</h3>
+                <HueSelector handleChange={handleFillColorChange} initHue={props.settings.fillColor.h}/>
+                <div className='color-select'>
+                    <SaturationLightnessSelector hue={props.settings.fillColor.h} handleChange={handleFillColorChange}/>
+                    <ColorIndicator color={props.settings.fillColor}/>
+                </div>
+
+            </div>
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
       updateLineColorSetting: (h, s , l) => dispatch({ type: 'UPDATE_LINE_COLOR', payload: {h:h, s:s, l:l} }),
       updateFillColorSetting: (h, s , l) => dispatch({ type: 'UPDATE_FILL_COLOR', payload: {h:h, s:s, l:l} })
