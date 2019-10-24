@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LineWidthSelector from '../components/lineWidthSelector'
-
+import LineTypeSelector from '../components/lineTypeSelector'
 
 const StrokeSelectorContainer = (props) => {
 
@@ -9,9 +9,9 @@ const StrokeSelectorContainer = (props) => {
         props.updateLineWidthSetting(width)
     }
 
-    // const handleFillColorChange = ({h = fillColor.h, s = fillColor.s, l = fillColor.l}) => {
-    //     props.updateFillColorSetting(h, s, l)
-    // }
+    const handleLineTypeUpdate = (type) => {
+        props.updateLineTypeSetting(type)
+    }
 
     return(
         <div className="stroke-selectors">
@@ -23,7 +23,7 @@ const StrokeSelectorContainer = (props) => {
 
             <div className="line-type">
                 <h3>Line Type</h3>
-
+                <LineTypeSelector handleUpdate={handleLineTypeUpdate}/>
 
             </div>
         </div>
@@ -33,6 +33,7 @@ const StrokeSelectorContainer = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       updateLineWidthSetting: (width) => dispatch({ type: 'UPDATE_LINE_WIDTH', payload: width }),
+      updateLineTypeSetting: (type) => dispatch({ type: 'UPDATE_LINE_TYPE', payload: type })
     //   updateFillColorSetting: (h, s , l) => dispatch({ type: 'UPDATE_FILL_COLOR', payload: {h:h, s:s, l:l} })
 
     }

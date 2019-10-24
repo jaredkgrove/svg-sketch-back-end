@@ -4,6 +4,7 @@ export function fetchSketch(id){
         fetch(`http://localhost:3000/api/v1/sketches/${id}`)
         .then(resp => resp.json())
         .then((sketch) => {
+            
             dispatch({type: 'FETCH_ACTIVE_SKETCH', 
             payload: {
                 id: sketch['data']['id'], 
