@@ -3,13 +3,9 @@ import {fetchSketch} from '../actions/fetchSketch'
 import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchPreviewContainer from '../containers/SketchPreviewContainer';
-
+import { Link } from 'react-router-dom';
 
 class SketchView extends React.Component {
-
-    // state = {
-    //     name: ''
-    // }
 
     componentDidMount(){
         if (this.props.match.params.sketchID !== this.props.currentSketch.id){
@@ -18,14 +14,17 @@ class SketchView extends React.Component {
     }
 
     componentWillUnmount(){
-        this.props.clearCurrentSketch()
+        // this.props.clearCurrentSketch()
     }
 
     render(){
         return(
             <>
-                
+                <h1>{this.props.currentSketch.name}</h1>
+                <h3>Created: {this.props.currentSketch.created_at}</h3>
+                <h3>Updated: {this.props.currentSketch.updated_at}</h3>
                 <SketchPreviewContainer elements={this.props.currentSketch.elements} handleSave={this.handleUpdateSketch}/>
+                <Link to={`/sketches/${this.props.currentSketch.id}/edit`}>Edit</Link>
             </>
         )
     }

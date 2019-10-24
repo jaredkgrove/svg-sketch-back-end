@@ -34,8 +34,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
       updateLineWidthSetting: (width) => dispatch({ type: 'UPDATE_LINE_WIDTH', payload: width }),
       updateLineTypeSetting: (type) => dispatch({ type: 'UPDATE_LINE_TYPE', payload: type })
-    //   updateFillColorSetting: (h, s , l) => dispatch({ type: 'UPDATE_FILL_COLOR', payload: {h:h, s:s, l:l} })
-
     }
   }
 

@@ -10,10 +10,6 @@ import StrokeSelectorContainer from '../containers/StrokeSelectorContainer'
 
 class EditView extends React.Component {
 
-    state = {
-        name: ''
-    }
-
     componentDidMount(){
         if (this.props.match.params.sketchID !== this.props.currentSketch.id){
             this.props.fetchSketch(this.props.match.params.sketchID)
@@ -28,14 +24,6 @@ class EditView extends React.Component {
         this.props.updateSketch(id, state)
     }
 
-    // handleLineHueUpdate = (hue) =>{
-    //     this.props.updateLineHueSetting(hue)
-    // }
-
-    // handleLineSLUpdate = (s, l) =>{
-    //     this.props.updateLineSLSetting(s, l)
-    // }
-
     render(){
         const loadSaveStatus = () => {
             if(this.props.currentSketch.loading) {
@@ -49,12 +37,8 @@ class EditView extends React.Component {
             <div className='Edit-view'>
                 {loadSaveStatus()}
                 <div className='settings'>
-                    {/* <ColorSelectorContainer settings={this.props.settings}/> */}
                     <ColorSelectorContainer settings={this.props.settings}/>
-                    <StrokeSelectorContainer settings={this.props.settings}/>
-
-                    
-                    {/* <ColorSelectorContainer settings={this.props.settings}/> */}
+                    <StrokeSelectorContainer settings={this.props.settings}/>    
                 </div>
                 <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
             </div>

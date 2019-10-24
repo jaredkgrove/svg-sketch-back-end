@@ -16,7 +16,6 @@ import { connect } from 'react-redux';
                 <button onClick={handleClick} value={10} style={{backgroundColor: 'grey', height:'50%', width: '18%', margin:'1%'}}> 10 </button>
             </>
         )
-
  }
 
  export default LIneWidthSlector
