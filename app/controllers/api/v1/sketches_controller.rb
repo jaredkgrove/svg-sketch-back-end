@@ -56,6 +56,6 @@ class Api::V1::SketchesController < ApplicationController
       end
 
       def elements_attributes_params
-        params.permit(elements: [:type, properties: [:id, :cx, :cy, :r, :stroke, :fill, :stroke_width]])
+        params.permit(elements: [:type, properties: [:id, :points, :cx, :cy, :x, :y, :width, :height, :r, :x1, :x2, :y1, :y2, :stroke, :fill, :stroke_width]])
       end
 end

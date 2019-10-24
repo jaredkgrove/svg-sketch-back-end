@@ -1,2 +1,0 @@
-class PolyLine < Element
-end
