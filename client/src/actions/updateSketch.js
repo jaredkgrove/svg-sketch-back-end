@@ -12,16 +12,27 @@ export const updateSketch = (id, data) => {
         })
         .then(resp => resp.json())
         .then(sketch => {
-            console.log(sketch)
             dispatch(
             {
-                type: 'UPDATE_ACTIVE_SKETCH', 
+                type: 'UPDATE_CURRENT_SKETCH', 
                 payload: {
                     id: sketch['data']['id'], 
                     name: sketch['data']['attributes']['name'], 
                     elements: sketch['included'].map((e) => ({type: e.attributes.elementable_type, properties: e.attributes.elementable}))
                 }
-            })}
+                
+            })
+
+            dispatch(
+                {
+                    type: 'UPDATE_SKETCH', 
+                    payload: {
+                        id: sketch['data']['id'],
+                        lastUpdated: sketch['data']['attributes']['last_updated'] 
+                    }
+                    
+                })
+        }
         )
     
     }

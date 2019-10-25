@@ -3,7 +3,7 @@ export const clearCurrentSketch = (id, data) => {
     return (dispatch) => {
             dispatch(
             {
-                type: 'CLEAR_ACTIVE_SKETCH', 
+                type: 'CLEAR_CURRENT_SKETCH', 
                 payload: {
                     id: '', 
                     name: '', 

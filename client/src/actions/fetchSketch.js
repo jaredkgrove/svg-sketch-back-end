@@ -4,13 +4,12 @@ export function fetchSketch(id){
         fetch(`http://localhost:3000/api/v1/sketches/${id}`)
         .then(resp => resp.json())
         .then((sketch) => {
-            console.log(sketch)
-            dispatch({type: 'FETCH_ACTIVE_SKETCH', 
+            dispatch({type: 'FETCH_CURRENT_SKETCH', 
             payload: {
                 id: sketch['data']['id'], 
                 name: sketch['data']['attributes']['name'],
-                created_at: sketch['data']['attributes']['created'],
-                updated_at: sketch['data']['attributes']['updated'],
+                created: sketch['data']['attributes']['created'],
+                lastUpdated: sketch['data']['attributes']['last_updated'],
                 elements: sketch['included'].map((e) => ({type: e.attributes.elementable_type, properties: e.attributes.elementable}))
             }
             })})
