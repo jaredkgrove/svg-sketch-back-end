@@ -21,7 +21,6 @@ import { connect } from 'react-redux';
 
       componentDidMount() {
         window.addEventListener('resize', this.updateDimensions);
-        console.log(this.props.initHue)
         this.setState({
             hue: this.props.initHue
         })

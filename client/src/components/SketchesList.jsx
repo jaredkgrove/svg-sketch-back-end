@@ -6,9 +6,9 @@ const SketchesList = ({ sketches }) => {
   const renderSketches = () => sketches.map(sketch => (<><Link key={sketch.id} to={sketch.url}>{sketch.name}</Link><br></br></>));
  
   return (
-    <>
-      {renderSketches()}
-    </>
+      <>
+        {renderSketches()}
+      </>
   );
 };
 export default SketchesList

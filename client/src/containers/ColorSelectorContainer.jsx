@@ -18,19 +18,24 @@ const ColorSelectorContainer = (props) => {
 
     return(
         <div className="color-selectors">
-
+            <h3>Line Color</h3>
             <div className='line-color'>
-                <h3>Line Color</h3>
-                <HueSelector handleChange={handleLineColorChange} initHue={props.settings.lineColor.h}/>
+           
+                <div className='hue-select'>
+                    <HueSelector handleChange={handleLineColorChange} initHue={props.settings.lineColor.h}/>
+                </div>
+                
                 <div className='color-select'>
                     <SaturationLightnessSelector hue={props.settings.lineColor.h} handleChange={handleLineColorChange}/>
                     <ColorIndicator color={props.settings.lineColor}/>
                 </div>
             </div>
-
+            <h3>Fill Color</h3>
             <div className="fill-color">
-                <h3>Fill Color</h3>
-                <HueSelector handleChange={handleFillColorChange} initHue={props.settings.fillColor.h}/>
+                
+                <div className='hue-select'>
+                    <HueSelector handleChange={handleFillColorChange} initHue={props.settings.fillColor.h}/>
+                </div>
                 <div className='color-select'>
                     <SaturationLightnessSelector hue={props.settings.fillColor.h} handleChange={handleFillColorChange}/>
                     <ColorIndicator color={props.settings.fillColor}/>

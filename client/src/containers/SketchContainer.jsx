@@ -47,9 +47,13 @@ class SketchContainer extends React.Component {
             let x2 = e.clientX - this.sketchClientRect.left
             let y2 = e.clientY - this.sketchClientRect.top
             let ratio = 1000 / this.sketchClientRect.width
+            console.log(this.sketchClientRect.width)
+            let ratioX = 1000 / this.sketchClientRect.width
+            let ratioY = 500 / this.sketchClientRect.height
+
             switch(this.props.settings.lineType){
                 case 'Circle':
-                    this.drawCircle(x2, y2, ratio)
+                    this.drawCircle(x2, y2, ratioX, ratioY)
                     break
                 case 'Line':
                     this.drawLine(x2, y2, ratio)
@@ -77,10 +81,10 @@ class SketchContainer extends React.Component {
         }
     } 
 
-    drawCircle = (x2, y2, ratio) => {
-        let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratio
+    drawCircle = (x2, y2, ratioX, ratioY) => {
+        let R = Math.pow(Math.pow(x2 - this.startPoint[0], 2) + Math.pow((y2 - this.startPoint[1]), 2), 0.5)*ratioY
         this.setState({
-            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratio), cy:this.startPoint[1]*ratio, r:R, stroke:this.getHSL(this.props.settings.lineColor), fill:this.getHSL(this.props.settings.fillColor), stroke_width:`${this.props.settings.lineWidth}`}}]
+            tempElements: [{type: 'Circle', properties: {cx:(this.startPoint[0]*ratioX), cy:this.startPoint[1]*ratioY, r:R, stroke:this.getHSL(this.props.settings.lineColor), fill:this.getHSL(this.props.settings.fillColor), stroke_width:`${this.props.settings.lineWidth}`}}]
         })
     }
 
@@ -119,7 +123,7 @@ class SketchContainer extends React.Component {
     render(){
         const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
-            <div className='Edit-sketch'>
+            <div className='edit-sketch'>
                 <h3>{this.props.currentSketch.name}</h3>
 
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>

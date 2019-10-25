@@ -7,6 +7,8 @@ import SketchContainer from '../containers/SketchContainer';
 import ColorSelectorContainer from '../containers/ColorSelectorContainer'
 import StrokeSelectorContainer from '../containers/StrokeSelectorContainer'
 
+import '../styles/editView.css'
+
 
 class EditView extends React.Component {
 
@@ -34,7 +36,7 @@ class EditView extends React.Component {
         }
 
         return(
-            <div className='Edit-view'>
+            <div className='edit-view'>
                 {loadSaveStatus()}
                 <div className='settings'>
                     <ColorSelectorContainer settings={this.props.settings}/>

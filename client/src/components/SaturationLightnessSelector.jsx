@@ -10,6 +10,8 @@ class SaturationLightnessSelector extends React.Component {
     }
     this.canvasClientRect = ''
     this.canvas = React.createRef();  
+    this.wrapperClientRect = ''
+    this.wrapper = React.createRef()
     }
     
     handleOnMouseDown = (e) => {
@@ -26,6 +28,7 @@ class SaturationLightnessSelector extends React.Component {
 
    componentDidMount(){
         this.canvasClientRect = this.canvas.current.getBoundingClientRect() 
+        this.wrapperClientRect = this.wrapper.current.getBoundingClientRect() 
         this.fillCanvas()
    }
 
@@ -40,6 +43,9 @@ class SaturationLightnessSelector extends React.Component {
 
     fillCanvas = () => {
         let context = this.canvas.current.getContext("2d");
+        this.canvas.current.style.width='100%';
+        this.canvas.current.style.height='100%';
+
         let height = this.canvas.current.height
         let width = this.canvas.current.width
         // this.canvas.current.width = 
@@ -74,8 +80,8 @@ class SaturationLightnessSelector extends React.Component {
       
     render(){
         return (
-            <div   className='sat-light-select' style={{height:'50%', width:'100%'}}>
-                <canvas   ref={this.canvas} onMouseDown={this.handleOnMouseDown} width='100%' height='100%' style={{width:'100%', height:'100%', verticalAlign:'top'}}></canvas>
+            <div ref={this.wrapper} className='sat-light-select'>
+                <canvas   ref={this.canvas} onMouseDown={this.handleOnMouseDown} style={{verticalAlign:'top'}}></canvas>
                 <div style={{backgroundColor: `hsl(${this.props.hue},${this.state.saturation}%,${this.state.lightness}%)`, width: '10px', height: '10px', border:'2px solid white', borderRadius: '7px', position:'relative', top:`${this.state.selectorPosition.y-5}px`, left:`${this.state.selectorPosition.x-5}px`}}></div>
             </div>
             
