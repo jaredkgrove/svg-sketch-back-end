@@ -1,0 +1,159 @@
+.edit-view{
+    text-align: center;
+    height: 90vh;
+
+}
+
+.edit-view h1{
+    /* margin: 0px; */
+    padding: 0px;
+    float: left;
+    /* clear: left; */
+}
+/* 
+.edit-view h6{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    clear: right;
+} */
+.edit-view .sketch-board{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    /* display: inline-block; */
+    float: left;
+    max-height: 80%;
+    max-width: 95%;
+    /* min-width: 50%; */
+    /* margin: 10px 0px 10px 0px; */
+    background: hsl(207, 11%, 67%);
+  }
+
+.edit-view .settings{
+    height: 100%;
+    /* background: lightslategrey; */
+    float: left;
+    width: 12vw;
+    margin: 10px;
+}
+
+
+
+.edit-view .edit-sketch{
+    text-align: center;
+    /* background: lightgray; */
+    display: inline-block;
+    height: 100%;
+    width: 85vw;
+    /* float: right; */
+}
+
+
+
+.edit-show a{
+    float: left;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 1.5em;
+    clear: left;
+}
+.edit-view{
+    /* display: flex; */
+    width: 100%;
+    height: 80vh;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .edit-sketch {
+    /* flex-grow: 7; */
+    /* height: 100%; */
+  }
+
+  
+  .settings h3{
+  margin: 0px;
+  padding: 0px;
+  clear: both;
+  }
+  
+
+  
+  .stroke-selectors{
+    float: left;
+    clear: both;
+    height: 25%;
+  }
+  .sat-light-select{
+      float: right;
+      clear: both;
+      height: 50%;
+  }
+
+  
+  .line-width{
+    float: left;
+    clear: both;
+    height: 40%;
+  }
+
+  .line-type{
+    float: left;
+    clear: both;
+    height: 40%;
+  }
+  
+  .line-width > button{
+    float: left;
+  }
+  
+  .color-selectors {
+    float: left;
+    clear: both;
+    height: 40%;
+  }
+
+  .stroke-selectors {
+    float: left;
+    clear: both;
+    height: 40%;
+  }
+  
+  .line-color{
+    float: left;
+    clear: both;
+    height: 40%;
+    /* height: 50px; */
+  }
+  
+  .fill-color{
+    float: left;
+    clear: both;
+    height: 40%;
+  }
+  
+  
+  .color-indicator{
+    float: right;
+    clear: both;
+    height: 50%;
+    width: 100%;
+  }
+
+  .color-select{
+    float: right;
+    width: 80%;
+    height: 100%;
+  } 
+  .hue-select {
+    float: left;
+    height: 100%;
+    width: 10%;
+  }
+
+  .hue-bar{
+      height: 100%;
+      width: 100%;
+  }

@@ -1,0 +1,63 @@
+.sketch-view{
+    text-align: center;
+    height: 90vh;
+
+}
+
+.sketch-view h1{
+    /* margin: 0px; */
+    padding: 0px;
+    float: left;
+    /* clear: left; */
+}
+
+.sketch-view h6{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    clear: right;
+}
+
+.sketch-view .sketch-board.preview{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+    /* display: inline-block; */
+    float: left;
+    max-height: 80%;
+    max-width: 95%;
+    min-width: 50%;
+    margin: 10px 0px 10px 0px;
+    background: hsl(207, 11%, 67%);
+  }
+
+.sketch-view .sketch-list{
+   
+    text-align: left;
+    /* background: lightslategrey; */
+    float: left;
+    width: 12vw;
+    margin: 10px;
+}
+
+
+
+.sketch-view .sketch-show{
+    text-align: center;
+    /* background: lightgray; */
+    display: inline-block;
+    height: 100%;
+    width: 85vw;
+    /* float: right; */
+}
+
+
+
+.sketch-show a{
+    float: left;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 1.5em;
+    clear: left;
+}

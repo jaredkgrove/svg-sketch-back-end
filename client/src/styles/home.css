@@ -1,0 +1,17 @@
+.home{
+    /* display: flex;         
+  
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+.recently-created{
+    display: inline-block;
+    margin: 10px;
+}
+
+.recently-updated{
+    display: inline-block;
+    margin: 10px;
+}
