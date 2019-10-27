@@ -5,49 +5,31 @@
 }
 
 .edit-view h1{
-    /* margin: 0px; */
     padding: 0px;
     float: left;
-    /* clear: left; */
 }
-/* 
-.edit-view h6{
-    margin: 0px;
-    padding: 0px;
-    float: right;
-    clear: right;
-} */
-.edit-view .sketch-board{
-    border: 1px;
-    border-color: black;
-    border-style: solid;
-    border-radius: 10px;
-    /* display: inline-block; */
-    float: left;
-    max-height: 80%;
-    max-width: 95%;
-    /* min-width: 50%; */
-    /* margin: 10px 0px 10px 0px; */
-    background: hsl(207, 11%, 67%);
-  }
 
 .edit-view .settings{
-    height: 100%;
-    /* background: lightslategrey; */
+    height: 90%;
     float: left;
     width: 12vw;
     margin: 10px;
 }
 
-
+.edit-view .sketch-board{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  background: hsl(207, 11%, 67%);
+}
 
 .edit-view .edit-sketch{
     text-align: center;
-    /* background: lightgray; */
-    display: inline-block;
+    float: right;
     height: 100%;
     width: 85vw;
-    /* float: right; */
+
 }
 
 
@@ -67,42 +49,49 @@
     justify-content: space-between;
   }
   
-  .edit-sketch {
+  .edit-view form {
+    float: left;
     /* flex-grow: 7; */
     /* height: 100%; */
   }
 
+
   
   .settings h3{
-  margin: 0px;
-  padding: 0px;
-  clear: both;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
   }
-  
-
   
   .stroke-selectors{
     float: left;
     clear: both;
     height: 25%;
+    width: 100%;
   }
+
   .sat-light-select{
       float: right;
       clear: both;
       height: 50%;
   }
-
   
   .line-width{
     float: left;
     clear: both;
     height: 40%;
+    width: 100%;
+  }
+
+  .line-type .selected{
+    background-color: blue;
   }
 
   .line-type{
     float: left;
     clear: both;
     height: 40%;
+    width: 100%;
   }
   
   .line-width > button{
@@ -125,7 +114,6 @@
     float: left;
     clear: both;
     height: 40%;
-    /* height: 50px; */
   }
   
   .fill-color{

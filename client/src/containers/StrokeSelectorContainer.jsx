@@ -21,8 +21,7 @@ const StrokeSelectorContainer = (props) => {
             </div>
             <h3>Line Type</h3>
             <div className="line-type">
-                <LineTypeSelector handleUpdate={handleLineTypeUpdate}/>
-
+                <LineTypeSelector handleUpdate={handleLineTypeUpdate} lineType={props.settings.lineType}/>
             </div>
         </div>
     )

@@ -123,16 +123,19 @@ class SketchContainer extends React.Component {
     render(){
         const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
+        <>
             <div className='edit-sketch'>
-                <h3>{this.props.currentSketch.name}</h3>
+                {/* <h3>{this.props.currentSketch.name}</h3> */}
 
                 <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
                     <ElementsContainer elements={elementsToRender()} />
                 </svg>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="submit" value='SAVE'/>
-                </form>
+
             </div>
+                { <form onSubmit={this.handleSubmit}>
+                    <input type="submit" value='SAVE'/>
+                </form>}
+                </>
         )
     }
 }
