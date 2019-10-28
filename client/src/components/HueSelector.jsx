@@ -20,9 +20,11 @@ import { connect } from 'react-redux';
       }
 
       componentDidMount() {
+        this.hueBarClientRect = this.hueBar.current.getBoundingClientRect() 
         window.addEventListener('resize', this.updateDimensions);
         this.setState({
-            hue: this.props.initHue
+            hue: this.props.initHue,
+            sliderPosition: this.getSliderPosition(this.props.initHue)
         })
       }
 
@@ -31,7 +33,7 @@ import { connect } from 'react-redux';
       }
     
      componentDidUpdate(prevProps, prevState){
-         if(this.state.sliderPosition !== prevState.sliderPosition ){
+         if(this.state.sliderPosition && this.state.sliderPosition !== prevState.sliderPosition ){
             this.props.handleChange({h: this.state.hue})
          }
      }

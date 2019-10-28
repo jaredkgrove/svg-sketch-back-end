@@ -47,7 +47,6 @@ class SketchContainer extends React.Component {
             let x2 = e.clientX - this.sketchClientRect.left
             let y2 = e.clientY - this.sketchClientRect.top
             let ratio = 1000 / this.sketchClientRect.width
-            console.log(this.sketchClientRect.width)
             let ratioX = 1000 / this.sketchClientRect.width
             let ratioY = 500 / this.sketchClientRect.height
 

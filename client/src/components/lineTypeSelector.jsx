@@ -7,7 +7,6 @@ import React from 'react';
     }
 
     const isCurrentSetting = (value) => (value === props.lineType)
-    
 
     return (
         <>

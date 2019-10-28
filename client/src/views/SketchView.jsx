@@ -1,7 +1,6 @@
 import React from 'react';
 import {fetchSketch} from '../actions/fetchSketch'
 import {fetchSketches} from '../actions/fetchSketches'
-import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchPreviewContainer from '../containers/SketchPreviewContainer';
 import SketchesList from '../components/SketchesList'
@@ -21,7 +20,6 @@ class SketchView extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        console.log((this.props.match.params.sketchID !== prevProps.match.params.sketchId || this.props.currentSketch.id === ''))
         if (this.props.match.params.sketchID !== prevProps.match.params.sketchID){
             this.props.fetchSketch(this.props.match.params.sketchID)
         }

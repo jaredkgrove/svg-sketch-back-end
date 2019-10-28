@@ -102,6 +102,7 @@
     float: left;
     clear: both;
     height: 40%;
+    width: 100%;
   }
 
   .stroke-selectors {
@@ -114,12 +115,14 @@
     float: left;
     clear: both;
     height: 40%;
+    width: 100%;
   }
   
   .fill-color{
     float: left;
     clear: both;
     height: 40%;
+    width: 100%;
   }
   
   
