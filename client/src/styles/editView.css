@@ -87,6 +87,10 @@
     background-color: blue;
   }
 
+  .line-width .selected{
+    background-color: blue;
+  }
+
   .line-type{
     float: left;
     clear: both;

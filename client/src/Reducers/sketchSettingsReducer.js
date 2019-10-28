@@ -1,5 +1,5 @@
 // add the catsReducer 
-const sketchSettingsReducer = (state = {lineColor:{h: 0, s: 100, l:50}, lineWidth: '5', lineType: 'polyline', fillColor:{h: 0, s: 100, l:50}}, action) => {
+const sketchSettingsReducer = (state = {lineColor:{h: 0, s: 100, l:50}, lineWidth: '4', lineType: 'Line', fillColor:{h: 0, s: 100, l:50}}, action) => {
 
     switch(action.type) {
       case 'UPDATE_LINE_COLOR':

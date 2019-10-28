@@ -17,7 +17,7 @@ const StrokeSelectorContainer = (props) => {
         <div className="stroke-selectors">
             <h3>Line Width</h3>
             <div className='line-width'>
-                <LineWidthSelector handleUpdate={handleLineWidthUpdate}/>
+                <LineWidthSelector handleUpdate={handleLineWidthUpdate} lineWidth={props.settings.lineWidth}/>
             </div>
             <h3>Line Type</h3>
             <div className="line-type">
