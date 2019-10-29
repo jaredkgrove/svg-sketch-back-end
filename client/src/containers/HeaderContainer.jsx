@@ -1,32 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-class HeaderContainer extends React.Component{
+const HeaderContainer = ({children}) => {
 
 
-render() {
-
-    return(
-        <header className="App-header">
-
-        <NavLink 
-        className='App-link'
-        style={{ marginRight: '10px' }} 
-        to="/"
-        >
-        Home
-        </NavLink>
-        <NavLink 
-        className='App-link'
-            style={{ marginRight: '10px' }} 
-            to="/sketches"
-        >
-        New Sketch
-        </NavLink>
-
-
-        {/* {routerProps => <Sketch {...routerProps} sketch={this.state.sketch}/>} */}
-        </header>
-    )}
-}
+    // render() {
+        // renderPageSpecificLinks = () =>{
+        //     this.props.
+        // }
+        return(
+            <header className="App-header">
+                <NavLink className='App-link' style={{ marginRight: '10px' }} to="/">Home</NavLink>
+                {children}
+            </header>
+        )
+    }
 
 export default HeaderContainer

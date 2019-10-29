@@ -1,7 +1,7 @@
 .edit-view{
     text-align: center;
     height: 90vh;
-
+  
 }
 
 .edit-view h1{
@@ -10,25 +10,36 @@
 }
 
 .edit-view .settings{
-    height: 90%;
+  box-sizing: border-box ;
+    height: 90vh;
     float: left;
-    width: 12vw;
-    margin: 10px;
+    
+    /* margin: 10px; */
+    padding: 1vh;
+    margin: 1vh;
+    min-width: 11vh;
+    max-width: 13vw;
+    background:  hsl(207, 25%, 20%);
+    clear: none;
 }
 
 .edit-view .sketch-board{
+  box-sizing: border-box ;
   border: 1px;
   border-color: black;
   border-style: solid;
   border-radius: 10px;
   background: hsl(207, 11%, 67%);
+  
 }
 
 .edit-view .edit-sketch{
+  box-sizing: border-box;
+  clear: none;
     text-align: center;
     float: right;
     height: 100%;
-    width: 85vw;
+    width: 84vw;
 
 }
 
@@ -55,25 +66,38 @@
     /* height: 100%; */
   }
 
+  .edit-sketch button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 8vh;
+    width: 10vw;
+    background: hsl(207, 80%, 50%);
+    padding: 0;
+    border: none;
+  }
+
 
   
   .settings h3{
+    box-sizing: border-box;
     margin: 0px;
-    padding: 0px;
+    /* padding: 0px; */
+    padding: 0px 0px 10px 0;
+    height: 20%;
+    
+       
     clear: both;
+
+
   }
   
-  .stroke-selectors{
-    float: left;
-    clear: both;
-    height: 25%;
-    width: 100%;
-  }
+
 
   .sat-light-select{
       float: right;
       clear: both;
-      height: 50%;
+      height: 40%;
   }
   
   .line-width{
@@ -105,27 +129,31 @@
   .color-selectors {
     float: left;
     clear: both;
-    height: 40%;
+    height: 45vh;
     width: 100%;
   }
 
-  .stroke-selectors {
+  .stroke-selectors{
     float: left;
     clear: both;
-    height: 40%;
+    height: 25vh;
+    width: 100%;
   }
   
   .line-color{
+    box-sizing: border-box;
     float: left;
     clear: both;
-    height: 40%;
+    margin: 1vh 0 1vh 0;
+    height: 20vh;
     width: 100%;
+    /* padding: 5px 0px 5px 0px; */
   }
   
   .fill-color{
     float: left;
     clear: both;
-    height: 40%;
+    height: 20vh;
     width: 100%;
   }
   
@@ -133,22 +161,27 @@
   .color-indicator{
     float: right;
     clear: both;
-    height: 50%;
+    height: 40%;
     width: 100%;
   }
 
   .color-select{
+
     float: right;
     width: 80%;
-    height: 100%;
+    height: 20vh;
   } 
+
   .hue-select {
+    box-sizing: border-box;
     float: left;
-    height: 100%;
+    height: 20vh;
+    padding-top: 4vh;
     width: 10%;
   }
 
   .hue-bar{
+    box-sizing: border-box;
       height: 100%;
       width: 100%;
   }

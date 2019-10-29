@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import SketchContainer from '../containers/SketchContainer';
 import ColorSelectorContainer from '../containers/ColorSelectorContainer'
 import StrokeSelectorContainer from '../containers/StrokeSelectorContainer'
+// import HeaderContainer from '../containers/HeaderContainer'
+
 
 import '../styles/editView.css'
 
@@ -36,14 +38,14 @@ class EditView extends React.Component {
         }
 
         return(
-            <div className='edit-view'>
-                {loadSaveStatus()}
-                <div className='settings'>
-                    <ColorSelectorContainer settings={this.props.settings}/>
-                    <StrokeSelectorContainer settings={this.props.settings}/>    
+                <div className='edit-view'>
+                    {loadSaveStatus()}
+                    <div className='settings'>
+                        <ColorSelectorContainer settings={this.props.settings}/>
+                        <StrokeSelectorContainer settings={this.props.settings}/>    
+                    </div>
+                    <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
                 </div>
-                <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
-            </div>
         )
     }
 }

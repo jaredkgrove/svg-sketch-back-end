@@ -5,8 +5,10 @@ import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchesList from '../components/SketchesList'
 import NewSketchInput from '../components/NewSketchInput';
+// import HeaderContainer from '../containers/HeaderContainer'
 
 import '../styles/home.css'
+
 
 class HomeView extends React.Component {
     state = {

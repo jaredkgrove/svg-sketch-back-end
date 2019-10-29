@@ -18,7 +18,7 @@ const ColorSelectorContainer = (props) => {
 
     return(
         <div className="color-selectors">
-            <h3>Line Color</h3>
+            {/* <h3>Line Color</h3> */}
             <div className='line-color'>
            
                 <div className='hue-select'>
@@ -26,17 +26,19 @@ const ColorSelectorContainer = (props) => {
                 </div>
                 
                 <div className='color-select'>
+                    <h3>Line Color</h3>
                     <SaturationLightnessSelector initColor={props.settings.lineColor} handleChange={handleLineColorChange}/>
                     <ColorIndicator color={props.settings.lineColor}/>
                 </div>
             </div>
-            <h3>Fill Color</h3>
+            {/* <h3>Fill Color</h3> */}
             <div className="fill-color">
                 
                 <div className='hue-select'>
                     <HueSelector handleChange={handleFillColorChange} initHue={props.settings.fillColor.h}/>
                 </div>
                 <div className='color-select'>
+                    <h3>Fill Color</h3>
                     <SaturationLightnessSelector initColor={props.settings.fillColor} handleChange={handleFillColorChange}/>
                     <ColorIndicator color={props.settings.fillColor}/>
                 </div>

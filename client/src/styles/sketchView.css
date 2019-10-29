@@ -4,31 +4,40 @@
 
 }
 
-.sketch-view h1{
+.sketch-list h1{
     /* margin: 0px; */
     padding: 0px;
     float: left;
     /* clear: left; */
 }
 
-.sketch-view h6{
+.sketch-data h6{
     margin: 0px;
-    padding: 0px;
-    float: right;
-    clear: right;
+    padding: 0px 0 10px 0;
+    /* float: left; */
+    clear: both;
+}
+
+.sketch-data a{
+    /* position: absolute; */
+    /* top: 0; */
+    /* right: 0; */
+    /* box-sizing: border-box; */
+    display: inline-block;
+    height: 8vh;
+    width: 10vw;
+    line-height: 8vh;
+    background: hsl(207, 80%, 50%);
+    /* padding-top: 50%; */
+
 }
 
 .sketch-view .sketch-board.preview{
+    box-sizing: border-box ;
     border: 1px;
     border-color: black;
     border-style: solid;
     border-radius: 10px;
-    /* display: inline-block; */
-    float: left;
-    max-height: 80%;
-    max-width: 95%;
-    min-width: 50%;
-    margin: 10px 0px 10px 0px;
     background: hsl(207, 11%, 67%);
   }
 
@@ -38,26 +47,35 @@
     /* background: lightslategrey; */
     float: left;
     width: 12vw;
-    margin: 10px;
+    /* margin: 10px; */
+}
+
+.sketch-view .sketch-data{
+   
+    text-align: center;
+    /* background: lightslategrey; */
+    float: left;
+    width: 12vw;
+    /* margin: 10px; */
 }
 
 
 
 .sketch-view .sketch-show{
-    text-align: center;
-    /* background: lightgray; */
-    display: inline-block;
-    height: 100%;
-    width: 85vw;
-    /* float: right; */
+    box-sizing: border-box;
+    clear: none;
+      text-align: center;
+      float: right;
+      height: 90vh;
+      width: 74vw;
 }
 
 
-
+/* 
 .sketch-show a{
     float: left;
     text-decoration: none;
-    /* display: inline-block; */
+ 
     font-size: 1.5em;
     clear: left;
-}
+} */
