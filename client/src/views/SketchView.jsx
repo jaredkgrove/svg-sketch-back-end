@@ -4,7 +4,7 @@ import {fetchSketches} from '../actions/fetchSketches'
 import { connect } from 'react-redux';
 import SketchPreviewContainer from '../containers/SketchPreviewContainer';
 import SketchesList from '../components/SketchesList'
-// import HeaderContainer from '../containers/HeaderContainer'
+import NewSketchInput from '../components/NewSketchInput'
 import '../styles/sketchView.css'
 import { Link } from 'react-router-dom';
 
@@ -29,6 +29,7 @@ class SketchView extends React.Component {
     render(){
         return(
                 <div className='sketch-view'>
+                    <NewSketchInput />
                     <div className='sketch-list'>
                         <h3>Recent Sketches</h3>
                         <SketchesList sketches={[...this.props.sketches].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated))}/>
