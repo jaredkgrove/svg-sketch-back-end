@@ -10,10 +10,10 @@ import React from 'react';
 
     return (
         <>
-            <button className={isCurrentSetting('Circle') ? 'selected' : null} onClick={handleClick} value='Circle' style={{height:'50%', width: '18%', margin:'1%'}}> O </button>
-            <button className={isCurrentSetting('Line') ? 'selected' : null} onClick={handleClick} value='Line' style={{height:'50%', width: '18%', margin:'1%'}}> l </button>
-            <button className={isCurrentSetting('Rectangle') ? 'selected' : null} onClick={handleClick} value='Rectangle' style={{height:'50%', width: '18%', margin:'1%'}}> R </button>
-            <button className={isCurrentSetting('Polyline') ? 'selected' : null} onClick={handleClick} value='Polyline' style={{height:'50%', width: '18%', margin:'1%'}}> R </button>
+            <button className={isCurrentSetting('Circle') ? 'selected' : null} onClick={handleClick} value='Circle' style={{height:'50%', margin:'1%'}}> Circle </button>
+            <button className={isCurrentSetting('Line') ? 'selected' : null} onClick={handleClick} value='Line' style={{height:'50%', margin:'1%'}}> Line </button>
+            <button className={isCurrentSetting('Rectangle') ? 'selected' : null} onClick={handleClick} value='Rectangle' style={{height:'50%', margin:'1%'}}> Rect </button>
+            <button className={isCurrentSetting('Polyline') ? 'selected' : null} onClick={handleClick} value='Polyline' style={{height:'50%', margin:'1%'}}> Free </button>
         </>
     )
  }

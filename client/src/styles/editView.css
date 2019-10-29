@@ -125,6 +125,12 @@
   .line-width > button{
     float: left;
   }
+
+  .line-type > button{
+    float: left;
+    padding: 0;
+    width: 23%;
+  }
   
   .color-selectors {
     float: left;

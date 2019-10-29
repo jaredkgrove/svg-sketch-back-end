@@ -16,8 +16,8 @@ const NewSketchInput = (props) => {
 
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" name="name" value={name} onChange={handleChange}/>
-            <input type="submit" value='Create New Sketch'/>
+            <input type="text" name="name" value={name} onChange={handleChange} placeholder="New Sketch Name"/>
+            <input type="submit" value='Create New Sketch' />
         </form> 
     ) 
 };
