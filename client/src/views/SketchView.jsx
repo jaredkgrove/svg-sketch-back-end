@@ -31,7 +31,7 @@ class SketchView extends React.Component {
                 <div className='sketch-view'>
                     <NewSketchInput />
                     <div className='sketch-list'>
-                        <h3>Recent Sketches</h3>
+                        <h1>Sketches</h1>
                         <SketchesList sketches={[...this.props.sketches].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated))}/>
                     </div>
                     <div className='sketch-data'>

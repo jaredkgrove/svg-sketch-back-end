@@ -38,14 +38,14 @@ class EditView extends React.Component {
         }
 
         return(
-                <div className='edit-view'>
-                    {loadSaveStatus()}
-                    <div className='settings'>
-                        <ColorSelectorContainer settings={this.props.settings}/>
-                        <StrokeSelectorContainer settings={this.props.settings}/>    
-                    </div>
-                    <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
+            <div className='edit-view'>
+                {loadSaveStatus()}
+                <div className='settings'>
+                    <ColorSelectorContainer settings={this.props.settings}/>
+                    <StrokeSelectorContainer settings={this.props.settings}/>    
                 </div>
+                <SketchContainer settings={this.props.settings} currentSketch={this.props.currentSketch} handleSave={this.handleUpdateSketch}/>
+            </div>
         )
     }
 }
