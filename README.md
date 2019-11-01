@@ -1,7 +1,7 @@
 # svg-sketch
 
 ## Usage
-To use this app, just clone, run rails db:migrate and then run rails start. 
+To use this app, just clone, run rails db:migrate and then run rails start. Create and save svg sketches. Sketching options include shapes, lines, colors, and more!
 
 ## License
 
