@@ -8,23 +8,13 @@
 
 .App-header {
   background-color: #282c34;
-  /* padding-top: 3vh; */
   line-height: 8vh;
   min-height: 8vh;
-  /* text-align: left; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   margin-bottom: 1vh;
-
 }
 
-
-
 .App-link {
-  /* color: #09d3ac; */
   color: hsl(207, 50%, 60%);
   float: left;
   margin-left: 10px;
