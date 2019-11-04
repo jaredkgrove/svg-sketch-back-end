@@ -22,7 +22,6 @@
 .sketch-data h6{
     margin: 0px;
     padding: 0px 0 10px 0;
-    /* float: left; */
     clear: both;
 }
 
@@ -69,7 +68,6 @@
     padding: 1vw 0.5vw 1vw 0.5vw;
     margin: 0 0 0 0.75vw;
     border-radius: 10px;
-    /* min-height: 380px; */
     width: 12%;
     background:  hsl(207, 25%, 20%);
     clear: none;
@@ -93,10 +91,6 @@
     top: 0;
     right: 0;
     height: 8vh;
-    /* width: 10vw; */
-    /* background: hsl(207, 80%, 50%); */
-    /* padding: 0; */
-    /* border: none; */
   }
 
   .sketch-view input[type="submit"]{
@@ -118,6 +112,5 @@
     height: 6vh;
     width: 20vw;
     margin: 0 1vh 0 0;
-    /* margin-top: 1vh; */
     border: none;
 }

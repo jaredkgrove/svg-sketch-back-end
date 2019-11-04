@@ -1,4 +1,3 @@
-// add the catsReducer 
 const sketchReducer = (state = {id:'', name: '', elements: [], created:'', lastUpdated:'', loading: false, saving: false}, action) => {
   switch(action.type) {
       case 'LOADING_SKETCH':
@@ -12,11 +11,7 @@ const sketchReducer = (state = {id:'', name: '', elements: [], created:'', lastU
       case 'FETCH_CURRENT_SKETCH':
       case 'CLEAR_CURRENT_SKETCH':
       case 'UPDATE_CURRENT_SKETCH':
-          return {...state, id: action.payload.id, name: action.payload.name, elements: action.payload.elements, created:action.payload.created, lastUpdated:action.payload.lastUpdated, loading: false, saving: false}
-  
-        // case 'ADD_ELEMENT':
-        //   return {...state, currentSketch:{...state.currentSketch, elements:[...state.currentSketch.elements, action.payload.element]}, loading: false, saving: false}
-    
+          return {...state, id: action.payload.id, name: action.payload.name, elements: action.payload.elements, created:action.payload.created, lastUpdated:action.payload.lastUpdated, loading: false, saving: false}   
     
       default:
         return state;

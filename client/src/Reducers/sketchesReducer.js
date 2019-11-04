@@ -1,4 +1,3 @@
-// add the catsReducer 
 const sketchReducer = (state = [], action) => {
     switch(action.type) {
       case 'FETCH_SKETCHES':

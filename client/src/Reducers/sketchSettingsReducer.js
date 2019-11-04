@@ -1,4 +1,3 @@
-// add the catsReducer 
 const sketchSettingsReducer = (state = {lineColor:{h: 0, s: 100, l:50}, lineWidth: '4', lineType: 'Line', fillColor:{h: 0, s: 100, l:50}}, action) => {
 
     switch(action.type) {
