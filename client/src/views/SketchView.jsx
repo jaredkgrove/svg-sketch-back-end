@@ -8,7 +8,6 @@ import NewSketchInput from '../components/NewSketchInput'
 import '../styles/sketchView.css'
 import { Link } from 'react-router-dom';
 
-
 class SketchView extends React.Component {
 
     componentDidMount(){
@@ -28,22 +27,22 @@ class SketchView extends React.Component {
 
     render(){
         return(
-                <div className='sketch-view'>
-                    <NewSketchInput />
-                    <div className='sketch-list'>
-                        <h1>Sketches</h1>
-                        <SketchesList sketches={[...this.props.sketches].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated))}/>
-                    </div>
-                    <div className='sketch-data'>
-                        <h1>{this.props.currentSketch.name}</h1>
-                        <h6>Created: {this.props.currentSketch.created}</h6>
-                        <h6>Updated: {this.props.currentSketch.lastUpdated}</h6>
-                        <Link to={`/sketches/${this.props.currentSketch.id}/edit`}>Edit</Link>
-                    </div>
-                    <div className='sketch-show'>
-                        <SketchPreviewContainer elements={this.props.currentSketch.elements} handleSave={this.handleUpdateSketch}/>
-                    </div>
+            <div className='sketch-view'>
+                <NewSketchInput />
+                <div className='sketch-list'>
+                    <h1>Sketches</h1>
+                    <SketchesList sketches={[...this.props.sketches].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated))}/>
                 </div>
+                <div className='sketch-data'>
+                    <h1>{this.props.currentSketch.name}</h1>
+                    <h6>Created: {this.props.currentSketch.created}</h6>
+                    <h6>Updated: {this.props.currentSketch.lastUpdated}</h6>
+                    <Link to={`/sketches/${this.props.currentSketch.id}/edit`}>Edit</Link>
+                </div>
+                <div className='sketch-show'>
+                    <SketchPreviewContainer elements={this.props.currentSketch.elements} handleSave={this.handleUpdateSketch}/>
+                </div>
+            </div>
         )
     }
 }

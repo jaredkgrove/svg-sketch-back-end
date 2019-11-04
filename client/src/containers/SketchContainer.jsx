@@ -97,7 +97,6 @@ class SketchContainer extends React.Component {
 
     drawPolyline = (x2, y2, ratio) => {
         if(this.state.tempElements.length){
-
             this.setState({
                 tempElements: [{type: 'Polyline', properties: {...this.state.tempElements[0].properties, points: this.state.tempElements[0].properties.points + ` ${x2*ratio} ${y2*ratio}`}}] 
             })
@@ -119,15 +118,12 @@ class SketchContainer extends React.Component {
         const elementsToRender = () => [...this.state.elements, ...this.state.tempElements]
         return(
             <>
-            <div className='edit-sketch'>
-                {/* <h3>{this.props.currentSketch.name}</h3> */}
-
-                <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
-                    <ElementsContainer elements={elementsToRender()} />
-                </svg>
-                <button onClick={this.handleSubmit}>SAVE</button>
-            </div>
-            
+                <div className='edit-sketch'>
+                    <svg ref={this.sketchArea} viewBox = {`0 0 1000 500`} className={"sketch-board"} onMouseDown={this.handleOnMouseDown} onMouseUp={this.handleOnMouseUp} onMouseMove={this.handleOnMouseMove}>
+                        <ElementsContainer elements={elementsToRender()} />
+                    </svg>
+                    <button onClick={this.handleSubmit}>SAVE</button>
+                </div>
             </>
         )
     }

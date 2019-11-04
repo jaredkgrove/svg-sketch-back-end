@@ -6,11 +6,8 @@ import { connect } from 'react-redux';
 import SketchContainer from '../containers/SketchContainer';
 import ColorSelectorContainer from '../containers/ColorSelectorContainer'
 import StrokeSelectorContainer from '../containers/StrokeSelectorContainer'
-// import HeaderContainer from '../containers/HeaderContainer'
-
 
 import '../styles/editView.css'
-
 
 class EditView extends React.Component {
 

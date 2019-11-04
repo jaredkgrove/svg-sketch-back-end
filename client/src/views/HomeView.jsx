@@ -5,15 +5,10 @@ import {clearCurrentSketch} from '../actions/clearCurrentSketch'
 import { connect } from 'react-redux';
 import SketchesList from '../components/SketchesList'
 import NewSketchInput from '../components/NewSketchInput';
-// import HeaderContainer from '../containers/HeaderContainer'
 
 import '../styles/home.css'
 
-
 class HomeView extends React.Component {
-    state = {
-        name: ''
-    }
 
     componentDidMount(){
         this.props.clearCurrentSketch()
@@ -26,12 +21,6 @@ class HomeView extends React.Component {
         if (this.props.currentSketch.id) {
             this.props.history.push(`/sketches/${this.props.currentSketch.id}/edit`)
         }
-    }
-
-    handleCreateSketch = (state) => {
-        this.props.createSketch(state)
-
-        
     }
 
     render(){

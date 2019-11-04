@@ -2,11 +2,9 @@ import React from 'react';
 
  const LineTypeSelector = (props) => {
 
-    const handleClick = (e) => {
-        props.handleUpdate(e.target.value)
-    }
+    const handleClick = e => (props.handleUpdate(e.target.value))
 
-    const isCurrentSetting = (value) => (value === props.lineType)
+    const isCurrentSetting = value => (value === props.lineType)
 
     return (
         <>
