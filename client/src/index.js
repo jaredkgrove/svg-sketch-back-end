@@ -15,8 +15,6 @@ import sketchSettingsReducer from './reducers/sketchSettingsReducer.js';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const rootReducer = combineReducers({sketches: sketchesReducer, currentSketch: currentSketchReducer, settings: sketchSettingsReducer})
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
-
-
  
 ReactDOM.render(
   <Provider store={store}>

@@ -1,4 +1,4 @@
-const sketchReducer = (state = {id:'', name: '', elements: [], created:'', lastUpdated:'', loading: false, saving: false}, action) => {
+const currentSketchReducer = (state = {id:'', name: '', elements: [], created:'', lastUpdated:'', loading: false, saving: false}, action) => {
   switch(action.type) {
       case 'LOADING_SKETCH':
           return {...state, loading: true}
@@ -18,4 +18,4 @@ const sketchReducer = (state = {id:'', name: '', elements: [], created:'', lastU
     }
   }
    
-  export default sketchReducer;
+  export default currentSketchReducer;

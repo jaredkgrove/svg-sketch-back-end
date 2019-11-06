@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
  
 const SketchesList = ({ sketches }) => {
   
-  const renderSketches = () => sketches.map(sketch => (<><Link key={sketch.id} to={sketch.url}>{sketch.name}</Link><br></br></>));
+  const renderSketches = () => sketches.map(sketch => (<><Link key={sketch.id} to={sketch.url}>{sketch.name}</Link> <br/></>));
  
   return (
       <>

@@ -11,14 +11,15 @@ import SketchView from './views/SketchView';
 class App extends React.Component {
 
   render(){
-  return (
-    <div className="App">
-      <HeaderContainer />
-      <Route exact path='/' render= {routerProps => <HomeView {...routerProps} />}/>
-      <Route exact path='/sketches/:sketchID' render= {routerProps => <SketchView {...routerProps} />}/>
-      <Route path='/sketches/:sketchID/edit' render= {routerProps => <EditView {...routerProps} />}/>
-    </div>
-  )}
+    return (
+      <div className="App">
+        <HeaderContainer />
+        <Route exact path='/' render= {routerProps => <HomeView {...routerProps} />}/>
+        <Route exact path='/sketches/:sketchID' render= {routerProps => <SketchView {...routerProps} />}/>
+        <Route path='/sketches/:sketchID/edit' render= {routerProps => <EditView {...routerProps} />}/>
+      </div>
+    )
+  }
 }
 
 
