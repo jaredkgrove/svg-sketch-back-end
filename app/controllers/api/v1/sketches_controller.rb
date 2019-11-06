@@ -1,15 +1,9 @@
 class Api::V1::SketchesController < ApplicationController
-    before_action :set_sketch, only: [:show, :update]#, :destroy]
+    before_action :set_sketch, only: [:show, :update]
 
     def index
       @sketches = Sketch.all
       sketches_json = SketchSerializer.new(@sketches).serialized_json
-      render json: sketches_json
-    end
-
-    def index_including_elements
-      @sketches = Sketch.all
-      sketches_json = SketchSerializer.new(@sketches, {include: [:elements]}).serialized_json
       render json: sketches_json
     end
   
@@ -32,25 +26,17 @@ class Api::V1::SketchesController < ApplicationController
       @sketch.update_sketch_elements_from_json(elements_attributes_params)
       if @sketch.save
         sketch_json = SketchSerializer.new(@sketch, {include: [:elements]}).serialized_json
-        # binding.pry
         render json: sketch_json
        else
          render json: @sketch.errors, status: :unprocessable_entity
        end
     end
-  
-    # # DELETE /users/1
-    # def destroy
-    #   @user.destroy
-    # end
-  
+
     private
-      # Use callbacks to share common setup or constraints between actions.
       def set_sketch
         @sketch = Sketch.find(params['id'])
       end
   
-      # Only allow a trusted parameter "white list" through.
       def sketch_params
         params.require(:sketch).permit(:name)
       end
