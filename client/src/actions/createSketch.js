@@ -10,7 +10,10 @@ export const createSketch = (data) => {
             method: 'POST',
             body: JSON.stringify(data)
         })
-        .then(resp => resp.json())
+        .then((resp) => {
+            if(!resp.ok){throw Error(resp.statusText);}
+            return resp.json()
+        })
         .then((sketch) => { 
             dispatch(
             {
@@ -22,6 +25,7 @@ export const createSketch = (data) => {
                 }
             })
         })
+        .catch(error => console.log(error))
     
     }
 }

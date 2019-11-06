@@ -2,6 +2,7 @@ export const updateSketch = (id, data) => {
 
     return (dispatch) => {
         dispatch({ type: 'SAVING_SKETCH' });
+
         fetch(`http://localhost:3001/api/v1/sketches/${id}`,{
             headers:{
                 'Content-Type': 'application/json',
@@ -10,7 +11,10 @@ export const updateSketch = (id, data) => {
             method: 'PATCH',
             body: JSON.stringify(data)
         })
-        .then(resp => resp.json())
+        .then((resp) => {
+            if(!resp.ok){throw Error(resp.statusText);}
+            return resp.json()
+        })
         .then(sketch => {
             dispatch(
             {
@@ -30,10 +34,11 @@ export const updateSketch = (id, data) => {
                         id: sketch['data']['id'],
                         lastUpdated: sketch['data']['attributes']['last_updated'] 
                     }
-                    
+
                 })
         }
         )
+        .catch(error => console.log(error))
     
     }
 }
