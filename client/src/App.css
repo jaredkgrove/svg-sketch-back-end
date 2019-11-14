@@ -30,6 +30,11 @@ a{
   color: hsl(207, 10%, 90%);
 }
 
+button{
+  text-decoration: none;
+  color: hsl(207, 10%, 90%);
+}
+
 a:hover{
   text-decoration: none;
   color: hsl(207, 80%, 50%);
