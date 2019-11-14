@@ -1,6 +1,10 @@
 import React from 'react';
 import {fetchSketch} from '../actions/fetchSketch'
+import {deleteSketch} from '../actions/deleteSketch'
+import {clearCurrentSketch} from '../actions/clearCurrentSketch'
+
 import {fetchSketches} from '../actions/fetchSketches'
+
 import { connect } from 'react-redux';
 import SketchPreviewContainer from '../containers/SketchPreviewContainer';
 import SketchesList from '../components/SketchesList'
@@ -25,6 +29,11 @@ class SketchView extends React.Component {
         }
     }
 
+    handleClick = () => {
+        this.props.clearCurrentSketch()
+        this.props.deleteSketch(this.props.currentSketch.id)
+    }
+
     render(){
         return(
             <div className='sketch-view'>
@@ -37,7 +46,8 @@ class SketchView extends React.Component {
                     <h1>{this.props.currentSketch.name}</h1>
                     <h6>Created: {this.props.currentSketch.created}</h6>
                     <h6>Updated: {this.props.currentSketch.lastUpdated}</h6>
-                    <Link to={`/sketches/${this.props.currentSketch.id}/edit`}>Edit</Link>
+                    <Link to={`/sketches/${this.props.currentSketch.id}/edit`}>EDIT</Link>
+                    <button onClick={this.handleClick}>DELETE</button>
                 </div>
                 <div className='sketch-show'>
                     <SketchPreviewContainer elements={this.props.currentSketch.elements} handleSave={this.handleUpdateSketch}/>
@@ -54,6 +64,6 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, {fetchSketch, fetchSketches})(SketchView)
+export default connect(mapStateToProps, {fetchSketch, fetchSketches, deleteSketch, clearCurrentSketch})(SketchView)
 
 

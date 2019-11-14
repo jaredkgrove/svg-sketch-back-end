@@ -33,6 +33,20 @@
     background: hsl(207, 80%, 50%);
 }
 
+.sketch-data button{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  padding: 0;
+  color: hsl(207, 10%, 90%);
+  border: none;
+  display: inline-block;
+  height: 8vh;
+  width: 10vw;
+  line-height: 8vh;
+  margin-top: 10px;
+  background: hsl(15, 80%, 50%);
+}
+
 .sketch-view .sketch-board.preview{
     box-sizing: border-box ;
     border-radius: 10px;
@@ -56,6 +70,8 @@
     clear: both;
     float: left;
   }
+
+  
   
   .sketch-view .sketch-list a:hover {
     color: hsl(207, 80%, 50%);
@@ -98,6 +114,16 @@
     width: 10vw;
     background: hsl(207, 80%, 50%);
     
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: hsl(207, 10%, 90%);
+    display: inline-block;
+    height: 8vh;
+    width: 10vw;
+    line-height: 8vh;
+  
+    background: hsl(207, 80%, 50%);
+
     border: none;
     padding: 0;
     margin: 0;
