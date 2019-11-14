@@ -1,5 +1,5 @@
 class Api::V1::SketchesController < ApplicationController
-    before_action :set_sketch, only: [:show, :update]
+    before_action :set_sketch, only: [:show, :update, :destroy]
 
     def index
       @sketches = Sketch.all
@@ -30,6 +30,11 @@ class Api::V1::SketchesController < ApplicationController
        else
          render json: @sketch.errors, status: :unprocessable_entity
        end
+    end
+
+    def destroy
+      @sketch.destroy
+      render json: params['id']
     end
 
     private
