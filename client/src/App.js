@@ -9,7 +9,6 @@ import EditView from './views/EditView';
 import SketchView from './views/SketchView';
 
 class App extends React.Component {
-
   render(){
     return (
       <div className="App">
