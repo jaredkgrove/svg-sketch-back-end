@@ -15,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "cd client && yarn install && yarn build && cd ..",
-    "deploy": "cp -a client/build/. public/",
+    "deploy": "cp -a client/. public/",
     "postinstall": "npm build && npm deploy && echo 'Client built!'"
   },
   "repository": {
